@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>徐辰利个球球</title>
+    <style>
+        .ball{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 100px;
+            height: 100px;
+            background: #222;
+            opacity: 0.5;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .b1{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background: #288;
+            opacity: 0;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="ball">
+        <div class="b1"></div>
+        <div class="b2"></div>
+        <div class="b3"></div>
+        <div class="b4"></div>
+    </div>
+    <script src="./js/jquery.js"></script>
+    <script>
+        $(function(){
+            var lock = true;
+            $('.ball').mouseover(function(){
+                $(this).stop().animate({"opacity":1});
+            }).mouseout(function(){
+                if(lock){
+                    $(this).stop().animate({"opacity":.5});
+                }
+            }).click(function(){
+                lock?$('.b1').stop().animate({"opacity":1,"left":-150,"top":-150}):$('.b1').stop().animate({"opacity":0,"left":0,"top":0})
+                // $('.b1').stop().animate({"opacity":1,"left":-150,"top":-150});
+                lock = !lock;
+                // $('.b1').stop().animate({"left":0,"top":0});
+            })
+        });
+    </script>
+</body>
+</html>
