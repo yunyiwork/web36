@@ -1,0 +1,26 @@
+/*初始化*/
+body,h1,h2,h3,h4,h5,h6,div,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td,figure,figcaption,article,section,aside{margin:0;padding:0;box-sizing: border-box;font-family: 'Microsoft YaHei'}
+body,button,input,select,textarea{font:12px/1.5 tahoma,arial,\5b8b\4f53;}
+body{_overflow:auto;_height:100%;margin:0 auto;}
+html{_overflow:hidden}
+h1,h2,h3,h4,h5,h6{font-size:100%}
+address,cite,dfn,em,var{font-style:normal}
+code,kbd,pre,samp{font-family:courier new,courier,monospace}
+small{font-size:12px}
+ul,ol,li,dl,dt,dd{list-style:none}
+sup{vertical-align:text-top}
+sub{vertical-align:text-bottom}
+legend{color:#000}
+fieldset,img{border:0}
+img{vertical-align: top;} /*除去img4px*/
+button,input,select,textarea{font:12px/1.5 tahoma,arial,sans-serif; vertical-align:middle;}
+textarea{resize: none; overflow: auto;}
+table{border-collapse:collapse;border-spacing:0}
+
+/*a*/
+a{text-decoration:none; color:#555;}
+a:hover{color:#ff6600;}
+
+/*清除浮动*/
+.clearfix:after{content:"."; display:block; clear:both; height:0; visibility:hidden;}	/*支持高级浏览器*/
+.clearfix{zoom:1;}	/*兼容IE低版本浏览器*/
