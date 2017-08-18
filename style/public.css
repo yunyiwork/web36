@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   background-color: #5a93cf;
 }
@@ -159,7 +160,7 @@ html body .ball {
   margin: auto;
   width: 50px;
   height: 50px;
-  background: #222;
+  background: #232323;
   opacity: 0.5;
   border-radius: 50%;
   cursor: pointer;
@@ -190,4 +191,191 @@ html body .ball .b1 p, html body .ball .b2 p, html body .ball .b3 p, html body .
   line-height: 14px;
   font-size: 12px;
   color: #222;
+}
+
+.pop {
+  position: fixed;
+  top: -1500px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  padding: 15px;
+  width: 400px;
+  height: 500px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.pop .pop-header {
+  border-bottom: 1px solid #5a93cf;
+}
+
+.pop .pop-header h3 {
+  line-height: 35px;
+}
+
+.pop .pop-header span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 20px;
+  margin: auto;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 20px;
+  color: #666;
+}
+
+.pop .pop-header span:hover {
+  color: red;
+}
+
+.pop .pop-main {
+  /*笔记*/
+  /*书签*/
+  /*进度*/
+}
+
+.pop .pop-main .note ul {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 300px;
+  overflow-y: scroll;
+}
+
+.pop .pop-main .note li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.pop .pop-main .note li p {
+  word-wrap: break-word;
+  word-break: normal;
+  overflow: hidden;
+}
+
+.pop .pop-main .note li p span {
+  float: left;
+  display: block;
+}
+
+.pop .pop-main .note li p span:first-child {
+  text-indent: 2em;
+  width: 300px;
+}
+
+.pop .pop-main .note li p span:last-child {
+  width: 50px;
+  text-align: center;
+  color: #5a93cf;
+}
+
+.pop .pop-main .note li p span:last-child:hover {
+  color: red;
+}
+
+.pop .pop-main .note li div {
+  overflow: hidden;
+}
+
+.pop .pop-main .note li div span {
+  float: right;
+  margin-right: 20px;
+}
+
+.pop .pop-main .note li:hover {
+  background-color: #dededd;
+}
+
+.pop .pop-main .note textarea {
+  width: 368px;
+  height: 80px;
+  padding: 10px;
+}
+
+.pop .pop-main .note button {
+  border: none;
+  float: right;
+  padding: 5px 15px;
+  background-color: #5a93cf;
+  cursor: pointer;
+  border-radius: 5px;
+  color: white;
+  font-size: 12px;
+}
+
+.pop .pop-main .note button:hover {
+  background-color: #2880dd;
+}
+
+.pop .pop-main .shuqian ul {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 420px;
+  overflow-y: scroll;
+}
+
+.pop .pop-main .shuqian li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.pop .pop-main .shuqian li p {
+  word-wrap: break-word;
+  word-break: normal;
+  overflow: hidden;
+}
+
+.pop .pop-main .shuqian li p span {
+  float: left;
+  display: block;
+}
+
+.pop .pop-main .shuqian li p span:first-child {
+  text-indent: 2em;
+  width: 300px;
+}
+
+.pop .pop-main .shuqian li p span:last-child {
+  width: 50px;
+  text-align: center;
+  color: #5a93cf;
+}
+
+.pop .pop-main .shuqian li p span:last-child:hover {
+  color: red;
+}
+
+.pop .pop-main .shuqian li p a:hover {
+  color: #ffba00;
+}
+
+.pop .pop-main .shuqian li:hover {
+  background-color: #dededd;
+}
+
+.pop .pop-main .pregress {
+  padding-top: 20px;
+}
+
+.pop .pop-main .pregress p {
+  font-size: 14px;
+  line-height: 40px;
+}
+
+.pop .pop-main .pregress p a {
+  display: inline-block;
+  color: #a31313;
+}
+
+.pop .pop-main .pregress p a:hover {
+  color: #a50101;
 }

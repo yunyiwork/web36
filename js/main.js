@@ -2,14 +2,14 @@ $(function(){
     onloadHTML();
     (function(){
         var lock = true;
-        $('.ball').mouseover(function(e){
-            e.stopPropagation();
-            $(this).stop().animate({"opacity":.9});
-        }).mouseout(function(){
+        $('.ball').on('mouseover',function(e){
+            // e.stopPropagation();
+            $(this).stop().animate({"opacity":1});
+        }).on('mouseout',function(){
             if(lock){
                 $(this).stop().animate({"opacity":.5});
             }
-        }).click(function(){
+        }).on('click',function(){
             if(lock){
                 $('.b1').stop().animate({"opacity":1,"left":-60,"top":-60});
                 $('.b2').stop().animate({"opacity":1,"right":-60,"top":-60});
@@ -28,13 +28,13 @@ $(function(){
             $('.ball').animate({'top':top},10,'swing')
         }
         //控制球体
-        $('.ball > div').mouseover(function(){
-            $(this).find("img").attr("src",$(this).find("img").attr("src").replace('.png','-a.png'));
-            $(this).find('p').css('color','#ffba00');
-        }).mouseout(function(){
-            $(this).find('img').attr("src",$(this).find("img").attr("src").replace('-a',''));
-            $(this).find('p').css('color','#222');
-        })
+        // $('.ball > div').mouseover(function(){
+        //     $(this).find("img").attr("src",$(this).find("img").attr("src").replace('.png','-a.png'));
+        //     $(this).find('p').css('color','#eed24c');
+        // }).mouseout(function(){
+        //     $(this).find('img').attr("src",$(this).find("img").attr("src").replace('-a',''));
+        //     $(this).find('p').css('color','#222');
+        // })
     })();
 });
 
