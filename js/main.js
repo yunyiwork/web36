@@ -4,7 +4,6 @@ $(function(){
         var lock = true;
         $('.ball').mouseover(function(e){
             e.stopPropagation();
-            
             $(this).stop().animate({"opacity":.9});
         }).mouseout(function(){
             if(lock){

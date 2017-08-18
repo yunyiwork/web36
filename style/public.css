@@ -152,6 +152,7 @@ html body .container .footer .den {
 }
 
 html body .ball {
+  z-index: 999;
   position: absolute;
   top: 577px;
   right: 198px;
