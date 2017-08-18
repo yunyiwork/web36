@@ -21,6 +21,7 @@ html body .container .title {
   top: 27px;
   left: -60px;
   background: url(../images/left_title.png);
+  z-index: 99;
 }
 
 html body .container .title > h2 {
@@ -46,6 +47,7 @@ html body .container .menu {
   height: 441px;
   top: 130px;
   right: -60px;
+  z-index: 99;
 }
 
 html body .container .flower {
@@ -93,7 +95,8 @@ html body .container .nav ul li > a {
   padding: 0 42px;
 }
 
-html body .container .nav ul li:hover > a, html body .container .nav ul .active > a {
+html body .container .nav ul li:hover > a,
+html body .container .nav ul .active > a {
   font-weight: bolder;
   color: #5a93cf;
 }
@@ -108,29 +111,88 @@ html body .container .header {
 }
 
 html body .container .main {
+  padding: 0 86px;
   width: 695px;
   margin: 0 auto;
   background: url(../images/main_bg.png) center;
+  position: relative;
+}
+
+html body .container .main .breadcrumb {
+  position: absolute;
+  top: -108px;
+  left: 56px;
+}
+
+html body .container .main .breadcrumb li {
+  float: left;
+  font-size: 16px;
+  color: #f2f2f2;
+}
+
+html body .container .main .breadcrumb li a {
+  font-size: 16px;
+  color: #f2f2f2;
+}
+
+html body .container .main .breadcrumb li a:hover {
+  color: #ff6600;
 }
 
 html body .container .main > h1 {
   color: #5a93cf;
   font-size: 36px;
   text-align: center;
+  padding-bottom: 20px;
 }
 
-html body .container .main ul {
+html body .container .main > h2 {
+  font-size: 24px;
+  text-align: center;
+}
+
+html body .container .main > h3 {
+  font-size: 16px;
+  padding-bottom: 13px;
+}
+
+html body .container .main .dail {
+  font-size: 16px;
+  line-height: 28px;
+  text-indent: 2em;
+  padding-bottom: 13px;
+}
+
+html body .container .main .img_box {
+  text-align: center;
+}
+
+html body .container .main .homelist {
   margin-top: 80px;
 }
 
-html body .container .main ul li {
-  padding-left: 110px;
-}
-
-html body .container .main ul li a {
+html body .container .main .homelist li a {
   font-size: 24px;
   color: #111111;
   line-height: 65px;
+}
+
+html body .container .main .slist {
+  margin-left: 2em;
+}
+
+html body .container .main .slist li a {
+  font-size: 20px;
+  color: #C66209;
+  line-height: 32px;
+}
+
+html body .container .main .slist li a:hover {
+  text-decoration: underline;
+}
+
+html body .container .main .footer_action {
+  display: none;
 }
 
 html body .container .footer {
@@ -140,6 +202,7 @@ html body .container .footer {
   background: url(../images/footer_bg.png) center;
   margin-bottom: 60px;
   position: relative;
+  text-align: center;
 }
 
 html body .container .footer .den {
@@ -151,41 +214,76 @@ html body .container .footer .den {
   right: -142px;
 }
 
+html body .container .footer .action {
+  margin-top: 30px;
+  display: inline-block;
+}
+
+html body .container .footer .action li {
+  float: left;
+  background-color: #5a93cf;
+  margin: 0 15px;
+  border-radius: 0px 20px;
+}
+
+html body .container .footer .action li a {
+  display: block;
+  width: 80px;
+  font-size: 14px;
+  line-height: 26px;
+  color: #f2f2f2;
+}
+
+html body .container .footer .action li:hover {
+  background-color: #C66209;
+}
+
 html body .ball {
   position: absolute;
-  top: 577px;
+  top: 635px;
   right: 198px;
   margin: auto;
   width: 50px;
   height: 50px;
-  background: #222;
+  background: #1f79d7;
   opacity: 0.5;
   border-radius: 50%;
   cursor: pointer;
   background-image: url(../images/action.png);
   background-position: center;
-  background-size: 60%;
+  background-size: 55%;
   background-repeat: no-repeat;
+  z-index: 999;
 }
 
-html body .ball .b1, html body .ball .b2, html body .ball .b3, html body .ball .b4 {
+html body .ball .b1,
+html body .ball .b2,
+html body .ball .b3,
+html body .ball .b4 {
   position: absolute;
   width: 50px;
   height: 50px;
   background: #c8e7f9;
+  border: 1px solid #c8e7f9;
   opacity: 0;
   border-radius: 50%;
   cursor: pointer;
   text-align: center;
 }
 
-html body .ball .b1 img, html body .ball .b2 img, html body .ball .b3 img, html body .ball .b4 img {
+html body .ball .b1 img,
+html body .ball .b2 img,
+html body .ball .b3 img,
+html body .ball .b4 img {
   display: inline-block;
   width: 20px;
   margin-top: 10px;
 }
 
-html body .ball .b1 p, html body .ball .b2 p, html body .ball .b3 p, html body .ball .b4 p {
+html body .ball .b1 p,
+html body .ball .b2 p,
+html body .ball .b3 p,
+html body .ball .b4 p {
   line-height: 14px;
   font-size: 12px;
   color: #222;
