@@ -1,62 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>徐辰利个球球</title>
     <style>
-        .ball{
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: auto;
-            width: 100px;
-            height: 100px;
+        .box{
+            position: relative;
+            border:1px solid red;
+            width: 600px;
+            height: 10000px;
+        }
+        .ball {
+            position: absolute;
+            top: 600px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
             background: #222;
             opacity: 0.5;
             border-radius: 50%;
             cursor: pointer;
+            background-image: url(./images/action.png);
+            background-position: center;
+            background-size: 80%;
+            background-repeat: no-repeat;
         }
-        .b1{
+
+        .b1,
+        .b2,
+        .b3,
+        .b4 {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100px;
-            height: 100px;
+            width: 60px;
+            height: 60px;
             background: #288;
             opacity: 0;
             border-radius: 50%;
             cursor: pointer;
+            text-align: center;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .ball img {
+            display: inline-block;
+            width: 26px;
+            margin-top: 10px;
+        }
+
+        .ball p {
+            line-height: 16px;
+            font-size: 14px;
+            margin-top: -5px;
         }
     </style>
 </head>
+
 <body>
-    <div class="ball">
-        <div class="b1"></div>
-        <div class="b2"></div>
-        <div class="b3"></div>
-        <div class="b4"></div>
+    <div class="box">
+        <div class="ball">
+            <div class="b1"><img src="./images/note.png" alt="笔记">
+                <p>笔记</p>
+            </div>
+            <div class="b2"><img src="./images/shuqian.png" alt="书签">
+                <p>书签</p>
+            </div>
+            <div class="b3"><img src="./images/pregress.png" alt="进度">
+                <p>进度</p>
+            </div>
+            <div class="b4"><img src="./images/work.png" alt="作业">
+                <p>作业</p>
+            </div>
+        </div>
     </div>
     <script src="./js/jquery.js"></script>
     <script>
-        $(function(){
+        $(function () {
             var lock = true;
-            $('.ball').mouseover(function(){
-                $(this).stop().animate({"opacity":1});
-            }).mouseout(function(){
-                if(lock){
-                    $(this).stop().animate({"opacity":.5});
+            $('.ball').mouseover(function () {
+                $(this).stop().animate({
+                    "opacity": 1
+                });
+            }).mouseout(function () {
+                if (lock) {
+                    $(this).stop().animate({
+                        "opacity": .5
+                    });
                 }
-            }).click(function(){
-                lock?$('.b1').stop().animate({"opacity":1,"left":-150,"top":-150}):$('.b1').stop().animate({"opacity":0,"left":0,"top":0})
-                // $('.b1').stop().animate({"opacity":1,"left":-150,"top":-150});
+            }).click(function () {
+                if (lock) {
+                    $('.b1').stop().animate({
+                        "opacity": 1,
+                        "left": -80,
+                        "top": -80
+                    });
+                    $('.b2').stop().animate({
+                        "opacity": 1,
+                        "right": -80,
+                        "top": -80
+                    });
+                    $('.b3').stop().animate({
+                        "opacity": 1,
+                        "left": -80,
+                        "bottom": -80
+                    });
+                    $('.b4').stop().animate({
+                        "opacity": 1,
+                        "right": -80,
+                        "bottom": -80
+                    });
+                } else {
+                    $('.b1').stop().animate({
+                        "opacity": 0,
+                        "left": 0,
+                        "top": 0
+                    })
+                    $('.b2').stop().animate({
+                        "opacity": 0,
+                        "right": 0,
+                        "top": 0
+                    })
+                    $('.b3').stop().animate({
+                        "opacity": 0,
+                        "left": 0,
+                        "bottom": 0
+                    })
+                    $('.b4').stop().animate({
+                        "opacity": 0,
+                        "right": 0,
+                        "bottom": 0
+                    })
+                }
                 lock = !lock;
-                // $('.b1').stop().animate({"left":0,"top":0});
-            })
+            });
+            window.onscroll  = function(event){
+                var top = 600+$(this).scrollTop();
+                $('.ball').animate({'top':top},10,'swing')
+            }
         });
     </script>
 </body>
+
 </html>

@@ -150,3 +150,43 @@ html body .container .footer .den {
   top: -80px;
   right: -142px;
 }
+
+html body .ball {
+  position: absolute;
+  top: 577px;
+  right: 198px;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  background: #222;
+  opacity: 0.5;
+  border-radius: 50%;
+  cursor: pointer;
+  background-image: url(../images/action.png);
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+}
+
+html body .ball .b1, html body .ball .b2, html body .ball .b3, html body .ball .b4 {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: #c8e7f9;
+  opacity: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  text-align: center;
+}
+
+html body .ball .b1 img, html body .ball .b2 img, html body .ball .b3 img, html body .ball .b4 img {
+  display: inline-block;
+  width: 20px;
+  margin-top: 10px;
+}
+
+html body .ball .b1 p, html body .ball .b2 p, html body .ball .b3 p, html body .ball .b4 p {
+  line-height: 14px;
+  font-size: 12px;
+  color: #222;
+}
