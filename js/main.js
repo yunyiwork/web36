@@ -46,26 +46,24 @@ function load(arr){
         $(".container .main").after(arr[i]);
     }
 }
-// var nowTime = new Date().toUTCString();
-// document.cookie = "chapterUrl=; expires="+nowTime;
-// console.error(document.cookie);
-if(document.cookie.split(" ")[0].indexOf('lock') < 0){
-    document.cookie = "chapterUrl=./pages/home.html; path=/";
-}
-function getChapterUrl(){
-    var chapterUrl = document.cookie.split(" ")[0].split("=")[1].replace(';','');
-    return chapterUrl;
-}
 
-function showPage(){
-    console.log(getChapterUrl());
-    $.get(getChapterUrl(),function(data,status){
-        $(".container .main").html(data);
-    })
-}
+//获取指定key的hash值
+function getHash(key, url) {
+    var hash;
+    if (!!url) {
+        hash = url.replace(/^.*?[#](.+?)(?:\?.+)?$/, "$1");
+        hash = (hash == url) ? "" : hash;
+    } else {
+        hash = self.location.hash;
+    }
 
-//点击跳转事件
-function gotoPage(url){
-    document.cookie = "chapterUrl="+url+"?lock; path=/";
-    showPage();
+    hash = "" + hash;
+    hash = hash.replace(/^[?#]/, '');
+    hash = "&" + hash;
+    var val = hash.match(new RegExp("[\&]" + key + "=([^\&]+)", "i"));
+    if (val == null || val.length < 1) {
+        return null;
+    } else {
+        return decodeURIComponent(val[1]);
+    }
 }

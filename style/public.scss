@@ -63,6 +63,8 @@ html {
                 margin: 0 auto;
                 background: url(../images/nav_bg2.png) center;
                 background-size: cover;
+                -ms-behavior: url(style/backgroundsize.min.htc);
+                behavior: url(style/backgroundsize.min.htc);
                 ul {
                     width: 100%;
                     overflow: hidden;
@@ -80,7 +82,6 @@ html {
                     li:hover,
                     .active {
                         >a {
-                            font-weight: bolder;
                             color: #5a93cf;
                         }
                     }
@@ -93,30 +94,33 @@ html {
                 margin-top: 70px;
                 background: url(../images/header_bg.png) center;
                 background-size: cover;
+                -ms-behavior: url(style/backgroundsize.min.htc);
+                behavior: url(style/backgroundsize.min.htc);
             }
             .main {
-                padding: 0 86px;
-                // width: 75%;
+                padding: 0 86px; // width: 75%;
                 width: 695px;
                 margin: 0 auto;
-                background: url(../images/main_bg.png);
-                background-size: 100% auto;
+                background: url(../images/main_bg.png) center;
+                background-size: 100% 100%;
+                -ms-behavior: url(style/backgroundsize.min.htc);
+                behavior: url(style/backgroundsize.min.htc);
                 position: relative;
-                .breadcrumb{
+                .breadcrumb {
                     position: absolute;
                     top: -120px;
                     left: 56px;
-                    li{
+                    li {
                         float: left;
                         font-size: 16px;
                         color: #f2f2f2;
-                        a{
+                        a {
                             font-size: 16px;
                             color: #f2f2f2;
                             display: inline-block;
                         }
-                        a:hover{
-                            color:#ff6600;
+                        a:hover {
+                            color: #ff6600;
                         }
                     }
                 }
@@ -134,13 +138,13 @@ html {
                     font-size: 16px;
                     padding-bottom: 13px;
                 }
-                .dail{
+                .dail {
                     font-size: 16px;
                     line-height: 28px;
                     text-indent: 2em;
                     padding-bottom: 13px;
                 }
-                .img_box{
+                .img_box {
                     text-align: center;
                 }
                 .homelist {
@@ -161,12 +165,12 @@ html {
                             color: #C66209;
                             line-height: 32px;
                         }
-                        a:hover{
+                        a:hover {
                             text-decoration: underline;
                         }
                     }
                 }
-                .footer_action{
+                .footer_action {
                     display: none;
                 }
             }
@@ -176,6 +180,8 @@ html {
                 margin: 0 auto;
                 background: url(../images/footer_bg.png) center;
                 background-size: cover;
+                -ms-behavior: url(style/backgroundsize.min.htc);
+                behavior: url(style/backgroundsize.min.htc);
                 margin-bottom: 60px;
                 position: relative;
                 text-align: center;
@@ -187,15 +193,15 @@ html {
                     top: -80px;
                     right: -142px;
                 }
-                .action{
+                .action {
                     margin-top: 30px;
                     display: inline-block;
-                    li{
-                        float:left;
+                    li {
+                        float: left;
                         background-color: #5a93cf;
                         margin: 0 15px;
                         border-radius: 0px 20px;
-                        a{
+                        a {
                             display: block;
                             width: 80px;
                             font-size: 14px;
@@ -203,7 +209,7 @@ html {
                             color: #f2f2f2;
                         }
                     }
-                    li:hover{
+                    li:hover {
                         background-color: #C66209;
                     }
                 }
@@ -223,8 +229,11 @@ html {
             background-image: url(../images/action.png);
             background-position: center;
             background-size: 55%;
+            -ms-behavior: url(style/backgroundsize.min.htc);
+            behavior: url(style/backgroundsize.min.htc);
             background-repeat: no-repeat;
             z-index: 999;
+            overflow: visible;
             .b1,
             .b2,
             .b3,
@@ -251,7 +260,7 @@ html {
             }
         }
     }
-    .pop{
+    .pop {
         position: fixed;
         top: -1500px;
         left: 0;
@@ -264,12 +273,12 @@ html {
         border: 1px solid #ccc;
         border-radius: 10px;
         background-color: white;
-        .pop-header{
+        .pop-header {
             border-bottom: 1px solid #5a93cf;
-            h3{
+            h3 {
                 line-height: 35px;
             }
-            span{
+            span {
                 position: absolute;
                 top: 0;
                 bottom: 0;
@@ -280,130 +289,130 @@ html {
                 margin-top: 20px;
                 color: #666;
             }
-            span:hover{
-                color:red;
+            span:hover {
+                color: red;
             }
         }
-        .pop-main{
+        .pop-main {
             /*笔记*/
-            .note{
-                ul{
+            .note {
+                ul {
                     margin-top: 10px;
                     margin-bottom: 10px;
                     height: 300px;
                     overflow-y: scroll;
                 }
-                li{
+                li {
                     padding-top: 10px;
                     padding-bottom: 10px;
                     border-bottom: 1px solid #ccc;
                     font-size: 12px;
                     cursor: pointer;
-                    p{
+                    p {
                         word-wrap: break-word;
                         word-break: normal;
                         overflow: hidden;
-                        span{
+                        span {
                             float: left;
                             display: block;
                         }
-                        span:first-child{
+                        span:first-child {
                             text-indent: 2em;
                             width: 300px;
                         }
-                        span:last-child{
+                        span:last-child {
                             width: 50px;
                             text-align: center;
                             color: #5a93cf;
                         }
-                        span:last-child:hover{
-                            color:red;
+                        span:last-child:hover {
+                            color: red;
                         }
                     }
-                    div{
+                    div {
                         overflow: hidden;
-                        span{
+                        span {
                             float: right;
                             margin-right: 20px;
                         }
                     }
                 }
-                li:hover{
+                li:hover {
                     background-color: #dededd;
                 }
-                textarea{
+                textarea {
                     width: 368px;
                     height: 80px;
                     padding: 10px;
                 }
-                button{
+                button {
                     border: none;
                     float: right;
                     padding: 5px 15px;
                     background-color: #5a93cf;
                     cursor: pointer;
                     border-radius: 5px;
-                    color:white;
+                    color: white;
                     font-size: 12px;
                 }
-                button:hover{
+                button:hover {
                     background-color: #2880dd;
                 }
             }
             /*书签*/
-            .shuqian{
-                ul{
+            .shuqian {
+                ul {
                     margin-top: 10px;
                     margin-bottom: 10px;
                     height: 420px;
                     overflow-y: scroll;
                 }
-                li{
+                li {
                     padding-top: 10px;
                     padding-bottom: 10px;
                     border-bottom: 1px solid #ccc;
                     font-size: 12px;
                     cursor: pointer;
-                    p{
+                    p {
                         word-wrap: break-word;
                         word-break: normal;
                         overflow: hidden;
-                        span{
+                        span {
                             float: left;
                             display: block;
                         }
-                        span:first-child{
+                        span:first-child {
                             text-indent: 2em;
                             width: 300px;
                         }
-                        span:last-child{
+                        span:last-child {
                             width: 50px;
                             text-align: center;
                             color: #5a93cf;
                         }
-                        span:last-child:hover{
-                            color:red;
+                        span:last-child:hover {
+                            color: red;
                         }
-                        a:hover{
+                        a:hover {
                             color: #ffba00;
                         }
                     }
                 }
-                li:hover{
+                li:hover {
                     background-color: #dededd;
                 }
             }
             /*进度*/
-            .pregress{
+            .pregress {
                 padding-top: 20px;
-                p{
+                p {
                     font-size: 14px;
                     line-height: 40px;
-                    a{
+                    a {
                         display: inline-block;
                         color: #a31313;
                     }
-                    a:hover{
+                    a:hover {
                         color: #a50101;
                     }
                 }

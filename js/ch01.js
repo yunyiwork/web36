@@ -1,7 +1,19 @@
 $(function(){
-    
+    $.history.init(function (hash) {
+        var page = getHash("page");
+        switch(page){
+            case 'ch01':
+                $(".container .main").load("./pages/home.html");
+                break;
+            case 's0100':
+                $(".container .main").load("./pages/s0100.html");
+                break;
+            case 's0101':
+                $(".container .main").load("./pages/s0101.html");
+                break;
+        }
+    });
     load(chapterArr.c01);
-    showPage();
     (function () {
         var lock = true;
         $('.ball').mouseover(function (e) {
