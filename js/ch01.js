@@ -28,14 +28,6 @@ $(function(){
             var top = 577+$(this).scrollTop();
             $('.ball').animate({'top':top},10,'swing')
         }
-        //控制球体
-        // $('.ball > div').mouseover(function(){
-        //     $(this).find("img").attr("src",$(this).find("img").attr("src").replace('.png','-a.png'));
-        //     $(this).find('p').css('color','#ffba00');
-        // }).mouseout(function(){
-        //     $(this).find('img').attr("src",$(this).find("img").attr("src").replace('-a',''));
-        //     $(this).find('p').css('color','#222');
-        // })
     })();
     // 添加功能到footer
     (function(){
