@@ -115,13 +115,14 @@ html body .container .main {
   padding: 0 86px;
   width: 695px;
   margin: 0 auto;
-  background: url(../images/main_bg.png) center;
+  background: url(../images/main_bg.png);
+  background-size: 100% auto;
   position: relative;
 }
 
 html body .container .main .breadcrumb {
   position: absolute;
-  top: -108px;
+  top: -120px;
   left: 56px;
 }
 
@@ -202,6 +203,7 @@ html body .container .footer {
   height: 105px;
   margin: 0 auto;
   background: url(../images/footer_bg.png) center;
+  background-size: cover;
   margin-bottom: 60px;
   position: relative;
   text-align: center;

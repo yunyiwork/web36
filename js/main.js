@@ -1,5 +1,10 @@
 $(function(){
     $(".container .main").before(domJSON.header).after(domJSON.footer);
+    // 判断浏览器宽度改变主体样式适应
+    (function(){
+        resizeW();
+        window.onresize = resizeW;
+    })();
 });
 
 var domJSON = {
@@ -11,15 +16,56 @@ var domJSON = {
 var chapterArr = {
     c01 : [domJSON.ball,domJSON.pop]
 }
-
+// 控制自适应宽度
+function resizeW(){
+    var dw = $(window).width();
+    if(dw > 1440){
+        $('.container').css('width','1440px');
+        $(".container .main").css('width','1099px');
+        $(".container .header").css('width','1100px');
+        $(".container .footer").css('width','1099px');
+    }else if(dw > 1366){
+        $('.container').css('width','1366px');
+        $(".container .main").css('width','1000px');
+        $(".container .header").css('width','1001px');
+        $(".container .footer").css('width','1001px');
+    }else if(dw > 1280){
+        $('.container').css('width','1280px');
+        $(".container .main").css('width','900px');
+        $(".container .header").css('width','901px');
+        $(".container .footer").css('width','901px');
+    }else{
+        $('.container').css('width','1045px');
+        $(".container .main").css('width','695px');
+        $(".container .header").css('width','695px');
+        $(".container .footer").css('width','695px');
+    }
+}
 function load(arr){
     for(var i = 0; i<arr.length; i++){
         $(".container .main").after(arr[i]);
     }
 }
+// var nowTime = new Date().toUTCString();
+// document.cookie = "chapterUrl=; expires="+nowTime;
+// console.error(document.cookie);
+if(document.cookie.split(" ")[0].indexOf('lock') < 0){
+    document.cookie = "chapterUrl=./pages/home.html; path=/";
+}
+function getChapterUrl(){
+    var chapterUrl = document.cookie.split(" ")[0].split("=")[1].replace(';','');
+    return chapterUrl;
+}
 
-function gotoPage(url){
-    $.get(url,function(data,status){
+function showPage(){
+    console.log(getChapterUrl());
+    $.get(getChapterUrl(),function(data,status){
         $(".container .main").html(data);
     })
+}
+
+//点击跳转事件
+function gotoPage(url){
+    document.cookie = "chapterUrl="+url+"?lock; path=/";
+    showPage();
 }
