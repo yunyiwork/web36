@@ -76,6 +76,8 @@ html body .container .nav {
   margin: 0 auto;
   background: url(../images/nav_bg2.png) center;
   background-size: cover;
+  -ms-behavior: url(style/backgroundsize.min.htc);
+  behavior: url(style/backgroundsize.min.htc);
 }
 
 html body .container .nav ul {
@@ -98,7 +100,6 @@ html body .container .nav ul li > a {
 
 html body .container .nav ul li:hover > a,
 html body .container .nav ul .active > a {
-  font-weight: bolder;
   color: #5a93cf;
 }
 
@@ -109,14 +110,18 @@ html body .container .header {
   margin-top: 70px;
   background: url(../images/header_bg.png) center;
   background-size: cover;
+  -ms-behavior: url(style/backgroundsize.min.htc);
+  behavior: url(style/backgroundsize.min.htc);
 }
 
 html body .container .main {
   padding: 0 86px;
   width: 695px;
   margin: 0 auto;
-  background: url(../images/main_bg.png);
-  background-size: 100% auto;
+  background: url(../images/main_bg.png) center;
+  background-size: 100% 100%;
+  -ms-behavior: url(style/backgroundsize.min.htc);
+  behavior: url(style/backgroundsize.min.htc);
   position: relative;
 }
 
@@ -204,6 +209,8 @@ html body .container .footer {
   margin: 0 auto;
   background: url(../images/footer_bg.png) center;
   background-size: cover;
+  -ms-behavior: url(style/backgroundsize.min.htc);
+  behavior: url(style/backgroundsize.min.htc);
   margin-bottom: 60px;
   position: relative;
   text-align: center;
@@ -256,8 +263,11 @@ html body .ball {
   background-image: url(../images/action.png);
   background-position: center;
   background-size: 55%;
+  -ms-behavior: url(style/backgroundsize.min.htc);
+  behavior: url(style/backgroundsize.min.htc);
   background-repeat: no-repeat;
   z-index: 999;
+  overflow: visible;
 }
 
 html body .ball .b1,
