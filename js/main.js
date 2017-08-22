@@ -53,7 +53,12 @@ if(document.cookie.split(" ")[0].indexOf('lock') < 0){
     document.cookie = "chapterUrl=./pages/home.html; path=/";
 }
 function getChapterUrl(){
-    var chapterUrl = document.cookie.split(" ")[0].split("=")[1].replace(';','');
+	var cookie = document.cookie.split(" ");
+	var chapterUrl = "";
+	for(var i = 0; i<cookie.length; i++){
+		if(cookie[i].split("=")[0] == "chapterUrl") chapterUrl = cookie[i].split("=")[1].replace(';','');
+	}
+    //var chapterUrl = document.cookie.split(" ")[0].split("=")[1].replace(';','');
     return chapterUrl;
 }
 
@@ -64,8 +69,34 @@ function showPage(){
     })
 }
 
+var urlArr = ['./pages/home.html']; //记录用户浏览的页面顺序的数组
+var preUrlIndex = 0;
+
 //点击跳转事件
 function gotoPage(url){
+	urlArr.push(url);	//将用户浏览的页面url推进urlArr数组中
     document.cookie = "chapterUrl="+url+"?lock; path=/";
     showPage();
+}
+
+//模拟浏览器后退功能
+if (window.history && window.history.pushState) {
+    $(window).on('popstate', function() {
+	    var hashLocation = location.hash;
+	    var hashSplit = hashLocation.split("#!/");
+	    var hashName = hashSplit[1];
+	
+	    if (hashName !== '') {
+	      	var hash = window.location.hash;
+	        if (hash === '') {
+	        	preUrlIndex =  urlArr.length - 2;
+	        	urlArr.splice(-1,1);
+	        	document.cookie = "chapterUrl="+urlArr[preUrlIndex]+"?lock; path=/";
+	        	showPage();
+	          	//alert('後退按鈕點擊');
+	        }
+	    }
+    });
+
+    //window.history.pushState('forward', null, './#forward');
 }
