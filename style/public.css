@@ -225,13 +225,18 @@ html body .container .footer .den {
 }
 
 html body .container .footer .action {
-  margin-top: 30px;
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  width: 452px;
+  margin: auto;
   display: inline-block;
 }
 
 html body .container .footer .action li {
   float: left;
-  background-color: #5a93cf;
+  background-color: #B6DEF7;
   margin: 0 15px;
   border-radius: 0px 20px;
   behavior: url(http://127.0.0.1:8020/web36/style/PIE.htc);
@@ -242,33 +247,39 @@ html body .container .footer .action li a {
   width: 80px;
   font-size: 14px;
   line-height: 26px;
-  color: #f2f2f2;
+  color: #5a93d0;
 }
 
 html body .container .footer .action li:hover {
   background-color: #C66209;
 }
 
+html body .container .footer .action li:hover a {
+  color: #f2f2f2;
+}
+
 html body .ball {
   position: absolute;
-  top: 635px;
+  top: 530px;
   right: 198px;
   margin: auto;
   width: 50px;
-  height: 50px;
-  background-color: #1f79d7;
+  height: 293px;
   opacity: 0.5;
   filter: alpha(opacity=50);
   border-radius: 50%;
   cursor: pointer;
   behavior: url(http://127.0.0.1:8020/web36/style/PIE.htc);
   z-index: 999;
-  overflow: visible;
 }
 
 html body .ball > img {
-  margin-top: 13px;
-  margin-left: 13px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 html body .ball .b1,
@@ -306,6 +317,16 @@ html body .ball .b4 p {
   line-height: 14px;
   font-size: 12px;
   color: #222;
+}
+
+html body .ball .b1,
+html body .ball .b2 {
+  top: 121px;
+}
+
+html body .ball .b3,
+html body .ball .b4 {
+  bottom: 121px;
 }
 
 html .pop {
@@ -386,13 +407,13 @@ html .pop .pop-main .note li p span:first-child {
   width: 300px;
 }
 
-html .pop .pop-main .note li p span:last-child {
+html .pop .pop-main .note li p .del {
   width: 50px;
   text-align: center;
   color: #5a93cf;
 }
 
-html .pop .pop-main .note li p span:last-child:hover {
+html .pop .pop-main .note li p .del:hover {
   color: red;
 }
 
@@ -462,13 +483,13 @@ html .pop .pop-main .shuqian li p span:first-child {
   width: 300px;
 }
 
-html .pop .pop-main .shuqian li p span:last-child {
+html .pop .pop-main .shuqian li p .del {
   width: 50px;
   text-align: center;
   color: #5a93cf;
 }
 
-html .pop .pop-main .shuqian li p span:last-child:hover {
+html .pop .pop-main .shuqian li p .del:hover {
   color: red;
 }
 
