@@ -234,6 +234,7 @@ html body .container .footer .action li {
   background-color: #5a93cf;
   margin: 0 15px;
   border-radius: 0px 20px;
+  behavior: url(http://127.0.0.1:8020/web36/style/PIE.htc);
 }
 
 html body .container .footer .action li a {
@@ -261,7 +262,8 @@ html body .ball {
   border-radius: 50%;
   cursor: pointer;
   behavior: url(http://127.0.0.1:8020/web36/style/PIE.htc);
-  z-index: 998;
+  z-index: 999;
+  overflow: visible;
 }
 
 html body .ball > img {
