@@ -1,0 +1,4 @@
+html body .container .main {
+    background: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://127.0.0.1:8020/web36/images/main_bg.png', sizingMethod='scale');
+}

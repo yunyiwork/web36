@@ -75,7 +75,7 @@ $(function(){
             lock = !lock;
         });
         window.onscroll = function (event) {
-            var top = 577 + $(this).scrollTop();
+            var top = 577 + ($(this).scrollTop() || document.documentElement.scrollTop);
             $('.ball').animate({
                 'top': top
             }, 10, 'swing')
