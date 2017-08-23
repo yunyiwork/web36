@@ -92,19 +92,17 @@ html {
                 height: 89px;
                 margin: 0 auto;
                 margin-top: 70px;
-                background: url(../images/header_bg.png) center;
+                background-image: url(http://127.0.0.1:8020/web36/images/header_bg.png);
                 background-size: cover;
-                -ms-behavior: url(style/backgroundsize.min.htc);
-                behavior: url(style/backgroundsize.min.htc);
+                // filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://127.0.0.1:8020/web36/images/header_bg.png', sizingMethod='scale');
             }
             .main {
                 padding: 0 86px; // width: 75%;
                 width: 695px;
                 margin: 0 auto;
-                background: url(../images/main_bg.png) center;
+                background-image: url(http://127.0.0.1:8020/web36/images/main_bg.png);
                 background-size: 100% 100%;
-                -ms-behavior: url(style/backgroundsize.min.htc);
-                behavior: url(style/backgroundsize.min.htc);
+                // filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://127.0.0.1:8020/web36/images/main_bg.png', sizingMethod='scale');
                 position: relative;
                 .breadcrumb {
                     position: absolute;
@@ -178,11 +176,10 @@ html {
                 width: 695px;
                 height: 105px;
                 margin: 0 auto;
-                background: url(../images/footer_bg.png) center;
                 background-size: cover;
-                -ms-behavior: url(style/backgroundsize.min.htc);
-                behavior: url(style/backgroundsize.min.htc);
                 margin-bottom: 60px;
+                background-image: url(http://127.0.0.1:8020/web36/images/footer_bg.png);
+                // filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://127.0.0.1:8020/web36/images/footer_bg.png', sizingMethod='scale');
                 position: relative;
                 text-align: center;
                 .den {
@@ -222,18 +219,17 @@ html {
             margin: auto;
             width: 50px;
             height: 50px;
-            background: #1f79d7;
+            background-color: #1f79d7;
             opacity: 0.5;
+            filter: alpha(opacity = 50);
             border-radius: 50%;
             cursor: pointer;
-            background-image: url(../images/action.png);
-            background-position: center;
-            background-size: 55%;
-            -ms-behavior: url(style/backgroundsize.min.htc);
-            behavior: url(style/backgroundsize.min.htc);
-            background-repeat: no-repeat;
+            // behavior: url(http://127.0.0.1:8020/web36/style/ie-css3.htc);
             z-index: 999;
-            overflow: visible;
+            > img{
+                margin-top: 13px;
+                margin-left: 13px;
+            }
             .b1,
             .b2,
             .b3,
@@ -241,12 +237,15 @@ html {
                 position: absolute;
                 width: 50px;
                 height: 50px;
-                background: #c8e7f9;
+                background-color: #c8e7f9;
                 border: 1px solid #c8e7f9;
                 opacity: 0;
+                filter: alpha(opacity = 0);
                 border-radius: 50%;
+                // behavior: url(http://127.0.0.1:8020/web36/style/ie-css3.htc);
                 cursor: pointer;
                 text-align: center;
+                z-index: 9999;
                 img {
                     display: inline-block;
                     width: 20px;
@@ -272,6 +271,7 @@ html {
         height: 500px;
         border: 1px solid #ccc;
         border-radius: 10px;
+        behavior: url(http://127.0.0.1:8020/web36/style/ie-css3.htc);
         background-color: white;
         .pop-header {
             border-bottom: 1px solid #5a93cf;
@@ -352,6 +352,7 @@ html {
                     background-color: #5a93cf;
                     cursor: pointer;
                     border-radius: 5px;
+                    behavior: url(http://127.0.0.1:8020/web36/style/ie-css3.htc);
                     color: white;
                     font-size: 12px;
                 }

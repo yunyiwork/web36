@@ -108,20 +108,16 @@ html body .container .header {
   height: 89px;
   margin: 0 auto;
   margin-top: 70px;
-  background: url(../images/header_bg.png) center;
+  background-image: url(http://127.0.0.1:8020/web36/images/header_bg.png);
   background-size: cover;
-  -ms-behavior: url(style/backgroundsize.min.htc);
-  behavior: url(style/backgroundsize.min.htc);
 }
 
 html body .container .main {
   padding: 0 86px;
   width: 695px;
   margin: 0 auto;
-  background: url(../images/main_bg.png) center;
+  background-image: url(http://127.0.0.1:8020/web36/images/main_bg.png);
   background-size: 100% 100%;
-  -ms-behavior: url(style/backgroundsize.min.htc);
-  behavior: url(style/backgroundsize.min.htc);
   position: relative;
 }
 
@@ -207,11 +203,9 @@ html body .container .footer {
   width: 695px;
   height: 105px;
   margin: 0 auto;
-  background: url(../images/footer_bg.png) center;
   background-size: cover;
-  -ms-behavior: url(style/backgroundsize.min.htc);
-  behavior: url(style/backgroundsize.min.htc);
   margin-bottom: 60px;
+  background-image: url(http://127.0.0.1:8020/web36/images/footer_bg.png);
   position: relative;
   text-align: center;
 }
@@ -256,18 +250,17 @@ html body .ball {
   margin: auto;
   width: 50px;
   height: 50px;
-  background: #1f79d7;
+  background-color: #1f79d7;
   opacity: 0.5;
+  filter: alpha(opacity=50);
   border-radius: 50%;
   cursor: pointer;
-  background-image: url(../images/action.png);
-  background-position: center;
-  background-size: 55%;
-  -ms-behavior: url(style/backgroundsize.min.htc);
-  behavior: url(style/backgroundsize.min.htc);
-  background-repeat: no-repeat;
   z-index: 999;
-  overflow: visible;
+}
+
+html body .ball > img {
+  margin-top: 13px;
+  margin-left: 13px;
 }
 
 html body .ball .b1,
@@ -277,12 +270,14 @@ html body .ball .b4 {
   position: absolute;
   width: 50px;
   height: 50px;
-  background: #c8e7f9;
+  background-color: #c8e7f9;
   border: 1px solid #c8e7f9;
   opacity: 0;
+  filter: alpha(opacity=0);
   border-radius: 50%;
   cursor: pointer;
   text-align: center;
+  z-index: 9999;
 }
 
 html body .ball .b1 img,
@@ -315,6 +310,7 @@ html .pop {
   height: 500px;
   border: 1px solid #ccc;
   border-radius: 10px;
+  behavior: url(http://127.0.0.1:8020/web36/style/ie-css3.htc);
   background-color: white;
 }
 
@@ -415,6 +411,7 @@ html .pop .pop-main .note button {
   background-color: #5a93cf;
   cursor: pointer;
   border-radius: 5px;
+  behavior: url(http://127.0.0.1:8020/web36/style/ie-css3.htc);
   color: white;
   font-size: 12px;
 }
