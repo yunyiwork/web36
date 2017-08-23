@@ -94,7 +94,7 @@ html {
                 margin-top: 70px;
                 background-image: url(http://127.0.0.1:8020/web36/images/header_bg.png);
                 background-size: cover;
-                // filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://127.0.0.1:8020/web36/images/header_bg.png', sizingMethod='scale');
+                behavior: url(./style/backgroundsize.min.htc);
             }
             .main {
                 padding: 0 86px; // width: 75%;
@@ -102,7 +102,8 @@ html {
                 margin: 0 auto;
                 background-image: url(http://127.0.0.1:8020/web36/images/main_bg.png);
                 background-size: 100% 100%;
-                // filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://127.0.0.1:8020/web36/images/main_bg.png', sizingMethod='scale');
+                behavior: url(./style/backgroundsize.htc);
+                -ms-behavior: url(./style/backgroundsize.htc);
                 position: relative;
                 .breadcrumb {
                     position: absolute;
@@ -179,7 +180,8 @@ html {
                 background-size: cover;
                 margin-bottom: 60px;
                 background-image: url(http://127.0.0.1:8020/web36/images/footer_bg.png);
-                // filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://127.0.0.1:8020/web36/images/footer_bg.png', sizingMethod='scale');
+                behavior: url(./style/backgroundsize.min.htc);
+                -ms-behavior: url(./style/backgroundsize.min.htc);
                 position: relative;
                 text-align: center;
                 .den {
@@ -198,6 +200,7 @@ html {
                         background-color: #5a93cf;
                         margin: 0 15px;
                         border-radius: 0px 20px;
+                        behavior: url(http://127.0.0.1:8020/web36/style/PIE.htc);
                         a {
                             display: block;
                             width: 80px;
@@ -226,6 +229,7 @@ html {
             cursor: pointer;
             behavior: url(http://127.0.0.1:8020/web36/style/PIE.htc);
             z-index: 999;
+            overflow: visible;
             > img{
                 margin-top: 13px;
                 margin-left: 13px;
