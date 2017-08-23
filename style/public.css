@@ -266,11 +266,6 @@ html body .ball {
   overflow: visible;
 }
 
-html body .ball > img {
-  margin-top: 13px;
-  margin-left: 13px;
-}
-
 html body .ball .b1,
 html body .ball .b2,
 html body .ball .b3,
@@ -379,20 +374,17 @@ html .pop .pop-main .note li p {
 html .pop .pop-main .note li p span {
   float: left;
   display: block;
-}
-
-html .pop .pop-main .note li p span:first-child {
   text-indent: 2em;
   width: 300px;
 }
 
-html .pop .pop-main .note li p span:last-child {
+html .pop .pop-main .note li p a {
   width: 50px;
   text-align: center;
   color: #5a93cf;
 }
 
-html .pop .pop-main .note li p span:last-child:hover {
+html .pop .pop-main .note li p a:hover {
   color: red;
 }
 

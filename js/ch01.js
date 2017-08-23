@@ -91,7 +91,7 @@ $(function(){
         //设置笔记内容
         var noteText = "";
         //模拟笔记内容数据
-        var note_text = '<li><p><span>ALSDFLWEOPJMGALljkaldfjlpkpfksfslflassdjljasfljdfjwfjjgaljflasjfljl</span><span>删除</span></p><div><span>2017-8-18</span></div></li><li><p><span>ALSDFLWEOPJMGALljkaldfjlpkpfksfslflassdjljasfljdfjwfjjgaljflasjfljl</span><span>删除</span></p><div><span>2017-8-18</span></div></li>';
+        var note_text = '<li><p><span>ALSDFLWEOPJMGALljkaldfjlpkpfksfslflassdjljasfljdfjwfjjgaljflasjfljl</span><a>删除</a></p><div><span>2017-8-18</span></div></li><li><p><span>ALSDFLWEOPJMGALljkaldfjlpkpfksfslflassdjljasfljdfjwfjjgaljflasjfljl</span><a>删除</a></p><div><span>2017-8-18</span></div></li>';
 
         function setNote(text) {
             noteText = '<div class="note"><ul>' + text + '</ul><textarea></textarea><div><button type="button">添加</button></div></div>';

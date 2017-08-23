@@ -230,10 +230,6 @@ html {
             behavior: url(http://127.0.0.1:8020/web36/style/PIE.htc);
             z-index: 999;
             overflow: visible;
-            > img{
-                margin-top: 13px;
-                margin-left: 13px;
-            }
             .b1,
             .b2,
             .b3,
@@ -321,17 +317,15 @@ html {
                         span {
                             float: left;
                             display: block;
-                        }
-                        span:first-child {
                             text-indent: 2em;
                             width: 300px;
                         }
-                        span:last-child {
+                        a {
                             width: 50px;
                             text-align: center;
                             color: #5a93cf;
                         }
-                        span:last-child:hover {
+                        a:hover {
                             color: red;
                         }
                     }
