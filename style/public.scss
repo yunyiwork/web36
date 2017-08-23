@@ -224,7 +224,7 @@ html {
             filter: alpha(opacity = 50);
             border-radius: 50%;
             cursor: pointer;
-            // behavior: url(http://127.0.0.1:8020/web36/style/ie-css3.htc);
+            behavior: url(http://127.0.0.1:8020/web36/style/PIE.htc);
             z-index: 999;
             > img{
                 margin-top: 13px;
@@ -241,11 +241,12 @@ html {
                 border: 1px solid #c8e7f9;
                 opacity: 0;
                 filter: alpha(opacity = 0);
+                filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
                 border-radius: 50%;
-                // behavior: url(http://127.0.0.1:8020/web36/style/ie-css3.htc);
+                behavior: url(http://127.0.0.1:8020/web36/style/PIE.htc);
                 cursor: pointer;
                 text-align: center;
-                z-index: 9999;
+                z-index: -1;
                 img {
                     display: inline-block;
                     width: 20px;
@@ -271,8 +272,9 @@ html {
         height: 500px;
         border: 1px solid #ccc;
         border-radius: 10px;
-        behavior: url(http://127.0.0.1:8020/web36/style/ie-css3.htc);
+        behavior: url(http://127.0.0.1:8020/web36/style/PIE.htc);
         background-color: white;
+        z-index: 1;
         .pop-header {
             border-bottom: 1px solid #5a93cf;
             h3 {
@@ -352,7 +354,7 @@ html {
                     background-color: #5a93cf;
                     cursor: pointer;
                     border-radius: 5px;
-                    behavior: url(http://127.0.0.1:8020/web36/style/ie-css3.htc);
+                    behavior: url(http://127.0.0.1:8020/web36/style/PIE.htc);
                     color: white;
                     font-size: 12px;
                 }

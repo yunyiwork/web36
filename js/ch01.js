@@ -18,14 +18,14 @@ $(function(){
         var lock = true;
         $('.ball').mouseover(function (e) {
             $(this).stop().animate({
-                "opacity": .9
+                "opacity": 0.9
             });
             e.cancelBubble;
             e.stopPropagation();
         }).mouseout(function () {
             if (lock) {
                 $(this).stop().animate({
-                    "opacity": .5
+                    "opacity": 0.5
                 });
             }
         }).on('click', function () {
