@@ -95,11 +95,14 @@ html {
                 background-image: url(http://127.0.0.1:8020/web36/images/header_bg.png);
                 background-size: cover;
                 behavior: url(./style/backgroundsize.min.htc);
+                position: relative;
+                z-index: 1;
             }
             .main {
                 padding: 0 86px; // width: 75%;
                 width: 695px;
                 margin: 0 auto;
+                // box-shadow: 5px 0 1px 1px rgba(51,48,48,0.3);/* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
                 background: url(http://127.0.0.1:8020/web36/images/main_bg.png);
                 background-size: 100% 100%;
                 behavior: url(./style/backgroundsize.htc);
@@ -175,10 +178,9 @@ html {
                     left: 0;
                     right: 0;
                     width: 452px;
-                    // margin-top: 30px;
                     margin: auto;
                     display: inline-block;
-                    z-index: 999;
+                    z-index: 9999;
                     li {
                         float: left;
                         // background-color: #5a93cf;

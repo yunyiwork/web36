@@ -1,5 +1,5 @@
 $(function () {
-	//加载头部和底部
+    //加载头部和底部
     $(".container .main").before(domJSON.header).after(domJSON.footer);
     // 判断浏览器宽度改变主体样式适应
     (function () {
