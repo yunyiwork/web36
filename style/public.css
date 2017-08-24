@@ -117,7 +117,7 @@ html body .container .main {
   padding: 0 86px;
   width: 695px;
   margin: 0 auto;
-  background-image: url(http://127.0.0.1:8020/web36/images/main_bg.png);
+  background: url(http://127.0.0.1:8020/web36/images/main_bg.png);
   background-size: 100% 100%;
   behavior: url(./style/backgroundsize.htc);
   -ms-behavior: url(./style/backgroundsize.htc);
@@ -198,8 +198,39 @@ html body .container .main .slist li a:hover {
   text-decoration: underline;
 }
 
-html body .container .main .footer_action {
-  display: none;
+html body .container .main .action {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  width: 452px;
+  margin: auto;
+  display: inline-block;
+}
+
+html body .container .main .action li {
+  float: left;
+  background-color: #B6DEF7;
+  margin: 0 15px;
+  border-radius: 0px 20px;
+  behavior: url(http://127.0.0.1:8020/web36/style/PIE.htc);
+}
+
+html body .container .main .action li a {
+  display: block;
+  width: 80px;
+  font-size: 14px;
+  line-height: 26px;
+  color: #226EC1;
+  text-align: center;
+}
+
+html body .container .main .action li:hover {
+  background-color: #C66209;
+}
+
+html body .container .main .action li:hover a {
+  color: #f2f2f2;
 }
 
 html body .container .footer {
@@ -222,40 +253,6 @@ html body .container .footer .den {
   position: absolute;
   top: -80px;
   right: -142px;
-}
-
-html body .container .footer .action {
-  position: fixed;
-  bottom: 20px;
-  left: 0;
-  right: 0;
-  width: 452px;
-  margin: auto;
-  display: inline-block;
-}
-
-html body .container .footer .action li {
-  float: left;
-  background-color: #B6DEF7;
-  margin: 0 15px;
-  border-radius: 0px 20px;
-  behavior: url(http://127.0.0.1:8020/web36/style/PIE.htc);
-}
-
-html body .container .footer .action li a {
-  display: block;
-  width: 80px;
-  font-size: 14px;
-  line-height: 26px;
-  color: #5a93d0;
-}
-
-html body .container .footer .action li:hover {
-  background-color: #C66209;
-}
-
-html body .container .footer .action li:hover a {
-  color: #f2f2f2;
 }
 
 html body .ball {

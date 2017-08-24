@@ -85,11 +85,6 @@ $(function(){
             }, 10, 'swing')
         }
     })();
-    // 添加功能到footer
-    setTimeout(function(){
-        var footer_action = $('.footer_action').html();
-        $('.footer>.action').html(footer_action);
-    },0);
     // 弹窗
     (function () {
         //设置笔记内容

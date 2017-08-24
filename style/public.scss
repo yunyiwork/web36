@@ -100,7 +100,7 @@ html {
                 padding: 0 86px; // width: 75%;
                 width: 695px;
                 margin: 0 auto;
-                background-image: url(http://127.0.0.1:8020/web36/images/main_bg.png);
+                background: url(http://127.0.0.1:8020/web36/images/main_bg.png);
                 background-size: 100% 100%;
                 behavior: url(./style/backgroundsize.htc);
                 -ms-behavior: url(./style/backgroundsize.htc);
@@ -169,29 +169,6 @@ html {
                         }
                     }
                 }
-                .footer_action {
-                    display: none;
-                }
-            }
-            .footer {
-                width: 695px;
-                height: 105px;
-                margin: 0 auto;
-                background-size: cover;
-                margin-bottom: 60px;
-                background-image: url(http://127.0.0.1:8020/web36/images/footer_bg.png);
-                behavior: url(./style/backgroundsize.min.htc);
-                -ms-behavior: url(./style/backgroundsize.min.htc);
-                position: relative;
-                text-align: center;
-                .den {
-                    width: 291px;
-                    height: 243px;
-                    background: url(../images/den.png);
-                    position: absolute;
-                    top: -80px;
-                    right: -142px;
-                }
                 .action {
                     position: fixed;
                     bottom: 20px;
@@ -213,8 +190,8 @@ html {
                             width: 80px;
                             font-size: 14px;
                             line-height: 26px;
-                            // color: #f2f2f2;
-                            color: #5a93d0;
+                            color: #226EC1;
+                            text-align: center;
                         }
                     }
                     li:hover {
@@ -223,6 +200,26 @@ html {
                             color: #f2f2f2;
                         }
                     }
+                }
+            }
+            .footer {
+                width: 695px;
+                height: 105px;
+                margin: 0 auto;
+                background-size: cover;
+                margin-bottom: 60px;
+                background-image: url(http://127.0.0.1:8020/web36/images/footer_bg.png);
+                behavior: url(./style/backgroundsize.min.htc);
+                -ms-behavior: url(./style/backgroundsize.min.htc);
+                position: relative;
+                text-align: center;
+                .den {
+                    width: 291px;
+                    height: 243px;
+                    background: url(../images/den.png);
+                    position: absolute;
+                    top: -80px;
+                    right: -142px;
                 }
             }
         }
