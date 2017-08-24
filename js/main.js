@@ -1,11 +1,20 @@
 $(function () {
-	//加载头部和底部
+    //加载头部和底部
     $(".container .main").before(domJSON.header).after(domJSON.footer);
     // 判断浏览器宽度改变主体样式适应
     (function () {
         resizeW();
         window.onresize = resizeW;
     })();
+    // 为添加书签按钮绑定事件
+    setTimeout(function () {
+        if ($('.main .action').length) {
+            $('.main').on('click', setShuqian);
+        }
+        if ($('.pop-main').length) {
+            $('.pop-main').on('click', actionShuqian);
+        }
+    })
 });
 
 //存储组件
@@ -70,5 +79,68 @@ function getHash(key, url) {
         return null;
     } else {
         return decodeURIComponent(val[1]);
+    }
+}
+
+//设置书签内容
+// 从本地存储获取书签
+var shuqian_text;
+if (localStorage.getItem('shuqian')) {
+    shuqian_text = JSON.parse(localStorage.getItem('shuqian'));
+} else {
+    shuqian_text = []
+}
+if (shuqian_text.length !== 0) {
+    addShuqian(shuqian_text.join(''));
+}
+if (!Array.prototype.indexOf) {
+    Array.prototype.indexOf = function (item, start) {
+        var i;
+        if (typeof start === 'number') {
+            i = (start < 0 ? Math.max(0, this.length + start) : start);
+        } else {
+            i = 0;
+        }
+        for (; i < this.length; i++) {
+            if (item === this[i]) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+
+function setShuqian(event) {
+    if (event.target.className === 'setShuqian') {
+        var href = location.hash;
+        var schapter = $('.breadcrumb>li:eq(2)>a').text();
+        var sh2 = $('.main>h2').text().replace(schapter, '');
+        var text = '<li><p><span><a href="' + href + '">' + schapter + ' ' + sh2 + '</a></span><span class="del">删除</span></p></li>';
+        if (shuqian_text.indexOf(text) !== -1) {
+            alert('此处已有书签');
+            return;
+        }
+        shuqian_text.push(text);
+        localStorage.setItem('shuqian', JSON.stringify(shuqian_text));
+        addShuqian(shuqian_text.join(''));
+    }
+}
+
+function addShuqian(text) {
+    shuqianText = '<div class="shuqian"><ul>' + text + '</ul></div>';
+    setTimeout(function () {
+        $('.pop .pop-main').html(shuqianText);
+    }, 0);
+
+}
+// 书签内的点击事件
+function actionShuqian(event) {
+    if (event.target.className === 'del') {
+        if ($(this).children('div').attr('class') === 'shuqian') {
+            var index = $(event.target).parents('li').index();
+            shuqian_text.splice(index, 1);
+            localStorage.setItem('shuqian', JSON.stringify(shuqian_text));
+            addShuqian(shuqian_text.join(''));
+        }
     }
 }

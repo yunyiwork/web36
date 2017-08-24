@@ -111,6 +111,8 @@ html body .container .header {
   background-image: url(http://127.0.0.1:8020/web36/images/header_bg.png);
   background-size: cover;
   behavior: url(./style/backgroundsize.min.htc);
+  position: relative;
+  z-index: 1;
 }
 
 html body .container .main {
@@ -206,6 +208,7 @@ html body .container .main .action {
   width: 452px;
   margin: auto;
   display: inline-block;
+  z-index: 9999;
 }
 
 html body .container .main .action li {

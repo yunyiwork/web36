@@ -57,12 +57,12 @@ $(function(){
                 $('.b1').stop().animate({
                     "opacity": 0,
                     "left": 0,
-                    "top": 121
+                    "top": 122
                 })
                 $('.b2').stop().animate({
                     "opacity": 0,
                     "right": 0,
-                    "top": 121
+                    "top": 122
                 })
                 $('.b3').stop().animate({
                     "opacity": 0,
@@ -97,15 +97,6 @@ $(function(){
         }
         setNote(note_text);
 
-        //设置书签内容
-        var shuqianText = "";
-        //模拟书签内容数据
-        var shuqian_text = '<li><p><span><a href="###">第三章 第二节 XXXXXXXXX</a></span><span class="del">删除</span></p></li>';
-
-        function setShuqian(text) {
-            shuqianText = '<div class="shuqian"><ul>' + text + '</ul></div>';
-        }
-        setShuqian(shuqian_text);
 
         //设置进度内容
         var pregress = {};
@@ -119,29 +110,23 @@ $(function(){
             pregressText = '<div class="pregress"><p>学习进度：<a href="' + text.lase_page[0] + '">' + text.lase_page[1] + '</a></p><p>学习完成度：' + text.study + '%</p><p>学习时长：' + text.studyTime + '小时</p>'
         }
         setPregress(pregress);
-        //存储弹窗内容
-        var popArr = {
-            note: noteText,
-            shuqian: shuqianText,
-            pregress: pregressText
-        }
         //弹窗动画
         $('.b1').on("click", function () {
-            $('.pop .pop-main').html(popArr.note);
+            $('.pop .pop-main').html(noteText);
             $('.pop .pop-header h3').text("笔记");
             $('.pop').stop().animate({
                 "top": 0
             });
         })
         $('.b2').on("click", function () {
-            $('.pop .pop-main').html(popArr.shuqian);
             $('.pop .pop-header h3').text("书签");
+            addShuqian(shuqian_text.join(''));
             $('.pop').stop().animate({
                 "top": 0
             });
         })
         $('.b3').on("click", function () {
-            $('.pop .pop-main').html(popArr.pregress);
+            $('.pop .pop-main').html(pregressText);
             $('.pop .pop-header h3').text("进度");
             $('.pop').stop().animate({
                 "top": 0
