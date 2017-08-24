@@ -143,7 +143,7 @@ html {
                     text-indent: 2em;
                     padding-bottom: 13px;
                 }
-                .img_box {
+                .img_box,.video_box {
                     text-align: center;
                 }
                 .homelist {
@@ -178,6 +178,7 @@ html {
                     // margin-top: 30px;
                     margin: auto;
                     display: inline-block;
+                    z-index: 999;
                     li {
                         float: left;
                         // background-color: #5a93cf;
@@ -185,6 +186,7 @@ html {
                         margin: 0 15px;
                         border-radius: 0px 20px;
                         behavior: url(http://127.0.0.1:8020/web36/style/PIE.htc);
+                        z-index: 9999;
                         a {
                             display: block;
                             width: 80px;
@@ -306,7 +308,6 @@ html {
             span {
                 position: absolute;
                 top: 0;
-                bottom: 0;
                 right: 20px;
                 margin: auto;
                 font-size: 18px;
@@ -347,6 +348,7 @@ html {
                             width: 50px;
                             text-align: center;
                             color: #5a93cf;
+                            text-indent: 0;
                         }
                         .del:hover {
                             color: red;
@@ -354,9 +356,10 @@ html {
                     }
                     div {
                         overflow: hidden;
+                        margin-top: 5px;
                         span {
                             float: right;
-                            margin-right: 20px;
+                            margin-right: 10px;
                         }
                     }
                 }

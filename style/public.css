@@ -170,7 +170,7 @@ html body .container .main .dail {
   padding-bottom: 13px;
 }
 
-html body .container .main .img_box {
+html body .container .main .img_box, html body .container .main .video_box {
   text-align: center;
 }
 
@@ -206,6 +206,7 @@ html body .container .main .action {
   width: 452px;
   margin: auto;
   display: inline-block;
+  z-index: 999;
 }
 
 html body .container .main .action li {
@@ -214,6 +215,7 @@ html body .container .main .action li {
   margin: 0 15px;
   border-radius: 0px 20px;
   behavior: url(http://127.0.0.1:8020/web36/style/PIE.htc);
+  z-index: 9999;
 }
 
 html body .container .main .action li a {
@@ -354,7 +356,6 @@ html .pop .pop-header h3 {
 html .pop .pop-header span {
   position: absolute;
   top: 0;
-  bottom: 0;
   right: 20px;
   margin: auto;
   font-size: 18px;
@@ -405,6 +406,7 @@ html .pop .pop-main .note li p .del {
   width: 50px;
   text-align: center;
   color: #5a93cf;
+  text-indent: 0;
 }
 
 html .pop .pop-main .note li p .del:hover {
@@ -413,11 +415,12 @@ html .pop .pop-main .note li p .del:hover {
 
 html .pop .pop-main .note li div {
   overflow: hidden;
+  margin-top: 5px;
 }
 
 html .pop .pop-main .note li div span {
   float: right;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 html .pop .pop-main .note li:hover {

@@ -85,17 +85,64 @@ $(function(){
             }, 10, 'swing')
         }
     })();
+        
     // 弹窗
     (function () {
-        //设置笔记内容
-        var noteText = "";
-        //模拟笔记内容数据
-        var note_text = '<li><p><span>ALSDFLWEOPJMGALljkaldfjlpkpfksfslflassdjljasfljdfjwfjjgaljflasjfljl</span><span class="del">删除</span></p><div><span>2017-8-18</span></div></li><li><p><span>ALSDFLWEOPJMGALljkaldfjlpkpfksfslflassdjljasfljdfjwfjjgaljflasjfljl</span><span class="del">删除</span></p><div><span>2017-8-18</span></div></li>';
-
-        function setNote(text) {
-            noteText = '<div class="note"><ul>' + text + '</ul><textarea></textarea><div><button type="button">添加</button></div></div>';
+	    //时间戳转换
+	    function getLocalTime(nS) {     
+	   		return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');     
+		}
+		
+    	var aNoteText = [];	//存储接收后台存入的值
+    	//模拟后台传入数据-------------------------------------------平台对接后删除
+    	if(localStorage.getItem("note")){
+    		aNoteText = JSON.parse(localStorage.getItem("note"));
+    	}
+		//设置笔记内容
+        function setNote() {
+        	var sNoteText = '';	//生成笔记内容数据，后面用for循环生成
+        	for(var i=0; i<aNoteText.length; i++){
+    			sNoteText += '<li><p><span>'+aNoteText[i].note+'</span><span class="del">删除</span></p><div><span>'+aNoteText[i].time+'</span></div></li>'
+    		}
+            return '<div class="note"><ul>' + sNoteText + '</ul><textarea></textarea><div><button type="button" class="addNote">添加</button></div></div>';
         }
-        setNote(note_text);
+
+	    //添加笔记和删除笔记
+	   	setTimeout(function (){
+	    	var oPopmain = $('.pop .pop-main');
+	    	var time = null;
+	    	
+	    	oPopmain.on("click",function(e){
+	    		oEvent = e || window.event;
+	    		time = new Date();
+	    		sNoteText = '';
+				
+	    		if(oEvent.target.className.indexOf('addNote') > -1 && oPopmain.find("textarea").val() != ""){	//点击添加笔记事件
+		    		aNoteText.push({note:oPopmain.find("textarea").val(),time:getLocalTime(time.getTime()/1000)});
+		    		
+		    		oPopmain.html(setNote());
+		    		oPopmain.find("textarea").val("");
+		    		//本地存储---------------------------------------------模拟存入后台，对接后台后删除
+		    		localStorage.setItem("note",JSON.stringify(aNoteText));
+		    		//console.log(JSON.parse(localStorage.getItem("note")));
+		    		
+	    		}else if(oEvent.target.className.indexOf('del') > -1){//点击删除笔记
+					if($(this).find("div").hasClass("note")){
+		    			aNoteText.splice($(oEvent.target).parents("li").index(),1);
+			    		oPopmain.html(setNote());
+			    		oPopmain.find("textarea").val("");
+					}
+		    		//本地存储---------------------------------------------模拟存入后台，对接后台后删除
+		    		localStorage.setItem("note",JSON.stringify(aNoteText));
+	    		}
+	    	})
+	    },0);
+	    
+	    
+	    
+
+
+
 
         //设置书签内容
         var shuqianText = "";
@@ -119,29 +166,25 @@ $(function(){
             pregressText = '<div class="pregress"><p>学习进度：<a href="' + text.lase_page[0] + '">' + text.lase_page[1] + '</a></p><p>学习完成度：' + text.study + '%</p><p>学习时长：' + text.studyTime + '小时</p>'
         }
         setPregress(pregress);
-        //存储弹窗内容
-        var popArr = {
-            note: noteText,
-            shuqian: shuqianText,
-            pregress: pregressText
-        }
+        
+        
         //弹窗动画
         $('.b1').on("click", function () {
-            $('.pop .pop-main').html(popArr.note);
+            $('.pop .pop-main').html(setNote());
             $('.pop .pop-header h3').text("笔记");
             $('.pop').stop().animate({
                 "top": 0
             });
         })
         $('.b2').on("click", function () {
-            $('.pop .pop-main').html(popArr.shuqian);
+            $('.pop .pop-main').html(shuqian_text);
             $('.pop .pop-header h3').text("书签");
             $('.pop').stop().animate({
                 "top": 0
             });
         })
         $('.b3').on("click", function () {
-            $('.pop .pop-main').html(popArr.pregress);
+            $('.pop .pop-main').html(pregressText);
             $('.pop .pop-header h3').text("进度");
             $('.pop').stop().animate({
                 "top": 0
@@ -152,6 +195,6 @@ $(function(){
             $('.pop').stop().animate({
                 "top": '-1500px'
             });
-        })
+        });
     })(); //弹窗结束
 });
