@@ -1,4 +1,7 @@
 $(function(){
+	//加载章节所需要的组件
+    load(chapterArr.c01);
+    //控制路由
     $.history.init(function (hash) {
         var page = getHash("page");
         switch(page){
@@ -13,7 +16,7 @@ $(function(){
                 break;
         }
     });
-    load(chapterArr.c01);
+    //控制功能球运动的js
     (function () {
         var lock = true;
         $('.ball').mouseover(function (e) {
@@ -33,49 +36,50 @@ $(function(){
                 $('.b1').stop().animate({
                     "opacity": 1,
                     "left": 0,
-                    "top": -60
+                    "top": 60
                 });
                 $('.b2').stop().animate({
                     "opacity": 1,
                     "left": 0,
-                    "top": -120
+                    "top": 0
                 });
                 $('.b3').stop().animate({
                     "opacity": 1,
                     "left": 0,
-                    "bottom": -60
+                    "bottom": 60
                 });
                 $('.b4').stop().animate({
                     "opacity": 1,
                     "left": 0,
-                    "bottom": -120
+                    "bottom": 0
                 });
             } else {
                 $('.b1').stop().animate({
                     "opacity": 0,
                     "left": 0,
-                    "top": 0
+                    "top": 121
                 })
                 $('.b2').stop().animate({
                     "opacity": 0,
                     "right": 0,
-                    "top": 0
+                    "top": 121
                 })
                 $('.b3').stop().animate({
                     "opacity": 0,
                     "left": 0,
-                    "bottom": 0
+                    "bottom": 121
                 })
                 $('.b4').stop().animate({
                     "opacity": 0,
                     "right": 0,
-                    "bottom": 0
+                    "bottom": 121
                 })
             }
             lock = !lock;
         });
+        //控制球体随页面上下滚而上下滚
         window.onscroll = function (event) {
-            var top = 577 + ($(this).scrollTop() || document.documentElement.scrollTop);
+            var top = 517 + ($(this).scrollTop() || document.documentElement.scrollTop);
             $('.ball').animate({
                 'top': top
             }, 10, 'swing')
@@ -91,7 +95,7 @@ $(function(){
         //设置笔记内容
         var noteText = "";
         //模拟笔记内容数据
-        var note_text = '<li><p><span>ALSDFLWEOPJMGALljkaldfjlpkpfksfslflassdjljasfljdfjwfjjgaljflasjfljl</span><a>删除</a></p><div><span>2017-8-18</span></div></li><li><p><span>ALSDFLWEOPJMGALljkaldfjlpkpfksfslflassdjljasfljdfjwfjjgaljflasjfljl</span><a>删除</a></p><div><span>2017-8-18</span></div></li>';
+        var note_text = '<li><p><span>ALSDFLWEOPJMGALljkaldfjlpkpfksfslflassdjljasfljdfjwfjjgaljflasjfljl</span><span class="del">删除</span></p><div><span>2017-8-18</span></div></li><li><p><span>ALSDFLWEOPJMGALljkaldfjlpkpfksfslflassdjljasfljdfjwfjjgaljflasjfljl</span><span class="del">删除</span></p><div><span>2017-8-18</span></div></li>';
 
         function setNote(text) {
             noteText = '<div class="note"><ul>' + text + '</ul><textarea></textarea><div><button type="button">添加</button></div></div>';
@@ -101,7 +105,7 @@ $(function(){
         //设置书签内容
         var shuqianText = "";
         //模拟书签内容数据
-        var shuqian_text = '<li><p><span><a href="###">第三章 第二节 XXXXXXXXX</a></span><span>删除</span></p></li>';
+        var shuqian_text = '<li><p><span><a href="###">第三章 第二节 XXXXXXXXX</a></span><span class="del">删除</span></p></li>';
 
         function setShuqian(text) {
             shuqianText = '<div class="shuqian"><ul>' + text + '</ul></div>';
