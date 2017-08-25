@@ -220,10 +220,7 @@ html body .container .main .action {
 html body .container .main .action li {
   float: left;
   margin: 0 15px;
-  border-radius: 0px 20px;
-  -moz-border-radius: 0px 20px;
-  behavior: url(http://127.0.0.1:8020/web36/style/PIE.htc);
-  background-color: #B6DEF7;
+  background-image: url(../images/ac_list_bg.png);
 }
 
 html body .container .main .action li a {
@@ -236,7 +233,7 @@ html body .container .main .action li a {
 }
 
 html body .container .main .action li:hover {
-  background-color: #C66209;
+  background-image: url(../images/ac_list_bga.png);
 }
 
 html body .container .main .action li:hover a {

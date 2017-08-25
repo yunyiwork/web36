@@ -187,12 +187,8 @@ html {
                     z-index: 9999;
                     li {
                         float: left;
-                        // background-color: #5a93cf;
                         margin: 0 15px;
-                        border-radius: 0px 20px;
-                        -moz-border-radius:0px 20px;
-                        behavior: url(http://127.0.0.1:8020/web36/style/PIE.htc);
-                        background-color: #B6DEF7;
+                        background-image: url(../images/ac_list_bg.png);
                         a {
                             display: block;
                             width: 80px;
@@ -200,11 +196,10 @@ html {
                             line-height: 26px;
                             color: #226EC1;
                             text-align: center;
-                            // text-indent: 15px;
                         }
                     }
                     li:hover {
-                        background-color: #C66209;
+                        background-image: url(../images/ac_list_bga.png);
                         a{
                             color: #f2f2f2;
                         }
