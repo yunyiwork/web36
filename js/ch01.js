@@ -127,7 +127,6 @@ $(function () {
                     oPopmain.find("textarea").val("");
                     //本地存储---------------------------------------------模拟存入后台，对接后台后删除
                     localStorage.setItem("note", JSON.stringify(aNoteText));
-                    //console.log(JSON.parse(localStorage.getItem("note")));
 
                 } else if (oEvent.target.className.indexOf('del') > -1) { //点击删除笔记
                     if ($(this).find("div").hasClass("note")) {
@@ -145,9 +144,7 @@ $(function () {
         // 书签
         // 为添加书签按钮绑定事件
         setTimeout(function () {
-            if ($('.main .action').length) {
-                $('.main').on('click', setShuqian);
-            }
+            $('.main').on('click', setShuqian);
             if ($('.pop-main').length) {
                 $('.pop-main').on('click', actionShuqian);
             }
@@ -179,7 +176,7 @@ $(function () {
                 return -1;
             }
         }
-
+        var lock = true;
         function setShuqian(event) {
             if (event.target.className === 'setShuqian') {
                 var href = location.href;
@@ -192,8 +189,18 @@ $(function () {
                 }
                 shuqian_text.push(text);
                 localStorage.setItem('shuqian', JSON.stringify(shuqian_text));
+                alert('添加书签成功');
                 addShuqian(shuqian_text.join(''));
+            }else if(event.target.parentNode.className.indexOf("chapter") > -1){    //控制章节显示隐藏
+                if(lock){
+                    $(this).find(".list").stop().animate({"bottom":"448px"})
+                    lock = !lock;
+                }else{
+                    $(this).find(".list").stop().animate({"bottom":"-20px"})
+                    lock = !lock;
+                }
             }
+
         }
 
         function addShuqian(text) {
@@ -216,12 +223,6 @@ $(function () {
         }
         // end 书签
 
-
-
-
-
-
-
         //设置进度内容
         var pregress = {};
         pregressText = "";
@@ -234,6 +235,39 @@ $(function () {
             pregressText = '<div class="pregress"><p>学习进度：<a href="' + text.lase_page[0] + '">' + text.lase_page[1] + '</a></p><p>学习完成度：' + text.study + '%</p><p>学习时长：' + text.studyTime + '小时</p>'
         }
         setPregress(pregress);
+
+        pregressText = '\
+        <div class="pregress">\
+            <div class="left">\
+                <h4>学习进度</h4>\
+                <ul>\
+                    <li>\
+                        <a href="###">第一章 XXXXXXXXX</a>\
+                        <ol>\
+                            <li class="readed"><a href="###">第一节 XXXXXXXXX</a><span><img src="../../images/readed.png" /></span></li>\
+                            <li><a href="###">第二节 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</a><span></span></li>\
+                        </ol>\
+                    </li>\
+                    <li>\
+                        <a href="###">第一章 XXXXXXXXX</a>\
+                        <ol>\
+                            <li class="readed"><a href="###">第一节 XXXXXXXXX</a><span><img src="../../images/readed.png" /></span></li>\
+                            <li><a href="###">第二节 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</a><span></span></li>\
+                        </ol>\
+                    </li>\
+                </ul>\
+            </div>\
+            <div class="right">\
+                <div class="schedule">\
+                    <h4>学习完成度</h4>\
+                    <p>0%</p>\
+                </div>\
+                <div class="time">\
+                    <h4>学习时长</h4>\
+                    <p>< 1小时</p>\
+                </div>\
+            </div>\
+        </div>';
 
 
         //弹窗动画
@@ -265,4 +299,5 @@ $(function () {
             });
         });
     })(); //弹窗结束
+
 });
