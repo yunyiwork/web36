@@ -203,9 +203,10 @@ html {
                             position: absolute;
                             z-index: -1;
                             // bottom: 460px;
-                            bottom: -20px;
+                            bottom: -468px;
                             left: -142px;
                             width: 360px;
+                            height: 422px;
                             img,ul{
                                 position: absolute;
                                 width: 360px;
@@ -214,6 +215,10 @@ html {
                                 left: 0;
                             }
                             ul{
+                                margin-top: 10px;
+                                height: 380px;
+                                width: 346px;
+                                overflow-y: scroll;
                                 padding: 10px 15px;
                                 font-size: 14px;
                                 li{
@@ -225,7 +230,7 @@ html {
                                 font-weight: bold;
                             }
                             dd{
-                                text-indent: 1em;
+                                padding-left: 15px;
                                 margin-top: 5px;
                             }
                             a{

@@ -192,10 +192,10 @@ $(function () {
                 addShuqian(shuqian_text.join(''));
             }else if(event.target.parentNode.className.indexOf("chapter") > -1){    //控制章节显示隐藏
                 if(lock){
-                    $(this).find(".list").stop().animate({"bottom":"448px"})
+                    $(this).find(".list").stop().animate({"bottom":"26px"})
                     lock = !lock;
                 }else{
-                    $(this).find(".list").stop().animate({"bottom":"-20px"})
+                    $(this).find(".list").stop().animate({"bottom":"-468px"})
                     lock = !lock;
                 }
             }
