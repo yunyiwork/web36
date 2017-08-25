@@ -182,7 +182,7 @@ $(function () {
 
         function setShuqian(event) {
             if (event.target.className === 'setShuqian') {
-                var href = location.hash;
+                var href = location.href;
                 var schapter = $('.breadcrumb>li:eq(2)>a').text();
                 var sh2 = $('.main>h2').text().replace(schapter, '');
                 var text = '<li><p><span><a href="' + href + '">' + schapter + ' ' + sh2 + '</a></span><span class="del">删除</span></p></li>';
