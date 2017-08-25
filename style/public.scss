@@ -208,19 +208,24 @@ html {
                         position: relative;
                         .list {
                             position: absolute;
-                            z-index: -1; // bottom: 460px;
-                            bottom: -20px;
+                            z-index: -1;
+                            // bottom: 460px;
+                            bottom: -468px;
                             left: -142px;
                             width: 360px;
-                            img,
-                            ul {
+                            height: 422px;
+                            img,ul{
                                 position: absolute;
                                 width: 360px;
                                 height: 422px;
                                 top: 0;
                                 left: 0;
                             }
-                            ul {
+                            ul{
+                                margin-top: 10px;
+                                height: 380px;
+                                width: 346px;
+                                overflow-y: scroll;
                                 padding: 10px 15px;
                                 font-size: 14px;
                                 li {
@@ -231,8 +236,8 @@ html {
                                 font-size: 15px;
                                 font-weight: bold;
                             }
-                            dd {
-                                text-indent: 1em;
+                            dd{
+                                padding-left: 15px;
                                 margin-top: 5px;
                             }
                             a {
