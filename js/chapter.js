@@ -5,14 +5,25 @@ $(function () {
     $.history.init(function (hash) {
         var page = getHash("page");
         switch (page) {
-            case 'ch01':
-                $(".container .main").load("./pages/home.html");
+            case null:
+                $(".container .main").load("./pages/home.html",function(){
+                    $('.action .chapter ul').html(domJSON.chapter);
+                });
                 break;
-            case 's0100':
-                $(".container .main").load("./pages/s0100.html");
+            case 'home':
+                $(".container .main").load("./pages/home.html",function(){
+                    $('.action .chapter ul').html(domJSON.chapter);
+                });
                 break;
-            case 's0101':
-                $(".container .main").load("./pages/s0101.html");
+            case 's00':
+                $(".container .main").load("./pages/s00.html",function(){
+                    $('.action .chapter ul').html(domJSON.chapter);
+                });
+                break;
+            case 's01':
+                $(".container .main").load("./pages/s01.html",function(){
+                    $('.action .chapter ul').html(domJSON.chapter);
+                });
                 break;
         }
     });
@@ -177,6 +188,7 @@ $(function () {
             }
         }
         var lock = true;
+
         function setShuqian(event) {
             if (event.target.className === 'setShuqian') {
                 var href = location.href;
@@ -191,12 +203,16 @@ $(function () {
                 localStorage.setItem('shuqian', JSON.stringify(shuqian_text));
                 alert('添加书签成功');
                 addShuqian(shuqian_text.join(''));
-            }else if(event.target.parentNode.className.indexOf("chapter") > -1){    //控制章节显示隐藏
-                if(lock){
-                    $(this).find(".list").stop().animate({"bottom":"26px"})
+            } else if (event.target.parentNode.className.indexOf("chapter") > -1) { //控制章节显示隐藏
+                if (lock) {
+                    $(this).find(".list").stop().animate({
+                        "bottom": "26px"
+                    })
                     lock = !lock;
-                }else{
-                    $(this).find(".list").stop().animate({"bottom":"-468px"})
+                } else {
+                    $(this).find(".list").stop().animate({
+                        "bottom": "-468px"
+                    })
                     lock = !lock;
                 }
             }
@@ -224,11 +240,9 @@ $(function () {
         // end 书签
 
         //设置进度内容
-
         var pregress = {
-            studyTime:0,
-            study:0,
-            
+            studyTime: 0,
+            study: 0
         };
         pregressText = "";
         var studyTime = 0.5; //模拟平台传入学习时间数据
