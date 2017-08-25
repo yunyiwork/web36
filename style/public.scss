@@ -184,7 +184,6 @@ html {
                     right: 0;
                     width: 452px;
                     margin: auto;
-                    display: inline-block;
                     z-index: 9999;
                     li {
                         float: left;
@@ -194,7 +193,6 @@ html {
                         -moz-border-radius:0px 20px;
                         behavior: url(http://127.0.0.1:8020/web36/style/PIE.htc);
                         background-color: #B6DEF7;
-                        z-index: 9999;
                         a {
                             display: block;
                             width: 80px;
@@ -202,6 +200,7 @@ html {
                             line-height: 26px;
                             color: #226EC1;
                             text-align: center;
+                            // text-indent: 15px;
                         }
                     }
                     li:hover {

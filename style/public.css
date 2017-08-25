@@ -214,7 +214,6 @@ html body .container .main .action {
   right: 0;
   width: 452px;
   margin: auto;
-  display: inline-block;
   z-index: 9999;
 }
 
@@ -225,7 +224,6 @@ html body .container .main .action li {
   -moz-border-radius: 0px 20px;
   behavior: url(http://127.0.0.1:8020/web36/style/PIE.htc);
   background-color: #B6DEF7;
-  z-index: 9999;
 }
 
 html body .container .main .action li a {
