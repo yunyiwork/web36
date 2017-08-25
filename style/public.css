@@ -211,16 +211,16 @@ html body .container .main .action {
   z-index: 9999;
 }
 
-html body .container .main .action li {
+html body .container .main .action > li {
   float: left;
   background-color: #B6DEF7;
   margin: 0 15px;
   border-radius: 0px 20px;
   behavior: url(http://127.0.0.1:8020/web36/style/PIE.htc);
-  z-index: 9999;
+  position: relative;
 }
 
-html body .container .main .action li a {
+html body .container .main .action > li > a {
   display: block;
   width: 80px;
   font-size: 14px;
@@ -229,11 +229,59 @@ html body .container .main .action li a {
   text-align: center;
 }
 
-html body .container .main .action li:hover {
+html body .container .main .action li.chapter {
+  position: relative;
+}
+
+html body .container .main .action li.chapter .list {
+  position: absolute;
+  z-index: -1;
+  bottom: -20px;
+  left: -142px;
+  width: 360px;
+}
+
+html body .container .main .action li.chapter .list img, html body .container .main .action li.chapter .list ul {
+  position: absolute;
+  width: 360px;
+  height: 422px;
+  top: 0;
+  left: 0;
+}
+
+html body .container .main .action li.chapter .list ul {
+  padding: 10px 15px;
+  font-size: 14px;
+}
+
+html body .container .main .action li.chapter .list ul li {
+  margin-bottom: 10px;
+}
+
+html body .container .main .action li.chapter .list dt {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+html body .container .main .action li.chapter .list dd {
+  text-indent: 1em;
+  margin-top: 5px;
+}
+
+html body .container .main .action li.chapter .list a {
+  text-align: left;
+  width: auto;
+}
+
+html body .container .main .action li.chapter .list a:hover {
+  color: #226EC1;
+}
+
+html body .container .main .action > li:hover {
   background-color: #C66209;
 }
 
-html body .container .main .action li:hover a {
+html body .container .main .action > li:hover > a {
   color: #f2f2f2;
 }
 
@@ -262,7 +310,7 @@ html body .container .footer .den {
 html body .ball {
   position: absolute;
   top: 530px;
-  right: 198px;
+  right: 210px;
   margin: auto;
   width: 50px;
   height: 293px;
@@ -501,19 +549,90 @@ html .pop .pop-main .shuqian li:hover {
 }
 
 html .pop .pop-main .pregress {
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
-html .pop .pop-main .pregress p {
-  font-size: 14px;
+html .pop .pop-main .pregress .left, html .pop .pop-main .pregress .right {
+  float: left;
+}
+
+html .pop .pop-main .pregress h4 {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+html .pop .pop-main .pregress .left {
+  width: 280px;
+  height: 420px;
+  overflow-y: scroll;
+}
+
+html .pop .pop-main .pregress .left > ul > li {
+  font-size: 13px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+html .pop .pop-main .pregress .left > ul > li > a {
+  color: #222;
+}
+
+html .pop .pop-main .pregress .left ol > li {
+  margin-top: 5px;
+  padding-left: 10px;
+  line-height: 18px;
+  overflow: hidden;
+}
+
+html .pop .pop-main .pregress .left ol > li a {
+  width: 230px;
+  float: left;
+  word-wrap: break-word;
+  word-break: normal;
+}
+
+html .pop .pop-main .pregress .left ol > li span {
+  width: 20px;
+  display: block;
+  float: left;
+  text-align: center;
+}
+
+html .pop .pop-main .pregress .left ol > li span img {
+  margin-top: 3px;
+}
+
+html .pop .pop-main .pregress .left ol > li a:hover {
+  color: #C43636;
+}
+
+html .pop .pop-main .pregress .left ol > li.readed a {
+  color: #169e13;
+}
+
+html .pop .pop-main .pregress .left ol > li:hover {
+  background-color: #ccc;
+}
+
+html .pop .pop-main .pregress .right {
+  text-align: center;
+  width: 87px;
+  border-left: 1px solid #ccc;
+}
+
+html .pop .pop-main .pregress .right .schedule {
+  border-bottom: 1px solid #ccc;
+}
+
+html .pop .pop-main .pregress .right .schedule, html .pop .pop-main .pregress .right .time {
+  height: 210px;
+}
+
+html .pop .pop-main .pregress .right .schedule p, html .pop .pop-main .pregress .right .time p {
   line-height: 40px;
 }
 
-html .pop .pop-main .pregress p a {
-  display: inline-block;
-  color: #a31313;
-}
-
-html .pop .pop-main .pregress p a:hover {
-  color: #a50101;
+html .pop .pop-main .pregress .right .time h4 {
+  margin-top: 10px;
 }
