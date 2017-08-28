@@ -1,47 +1,53 @@
-$(function () {
-    //加载头部和底部
-    $(".container .main").before(domJSON.header).after(domJSON.footer);
-    // 判断浏览器宽度改变主体样式适应
-    (function () {
-        resizeW();
-        window.onresize = resizeW;
-    })();
-});
+
 // 章节目录结构
-var chapterList = [
-    {
-        title:'第一章 幼儿创造性思维概述',
-        href:'http://127.0.0.1:8020/web36/template/chapter01/index.html#page=home',
-        chapter:[
-            {
-                title:'第一节  创造性思维及其内涵',
-                href:'http://127.0.0.1:8020/web36/template/chapter01/index.html#page=s00',
-                status:0
-            },
-            {
-                title:'第二节  幼儿思维能力发展的特点',
-                href:'http://127.0.0.1:8020/web36/template/chapter01/index.html#page=s01',
-                status:0
-            }
-        ]
-    },
-    {
-        title:'第二章  幼儿创造性思维训练培养内容',
-        href:'http://127.0.0.1:8020/web36/template/chapter02/index.html#page=home',
-        chapter:[
-            {
-                title:'第一节  创造性思维及其内涵',
-                href:'http://127.0.0.1:8020/web36/template/chapter02/index.html#page=s00',
-                status:0
-            },
-            {
-                title:'第二节  幼儿思维能力发展的特点',
-                href:'http://127.0.0.1:8020/web36/template/chapter02/index.html#page=s01',
-                status:0
-            }
-        ]
-    }
-];
+var chapterList = [];
+if(localStorage.getItem("chapterList")){
+	updateChapterLocal();
+}else{
+	chapterList = [
+	    {
+	        title:'第一章 幼儿创造性思维概述',
+	        href:'http://127.0.0.1:8020/web36/template/chapter01/index.html#page=home',
+	        chapter:[
+	            {
+	                title:'第一节  创造性思维及其内涵',
+	                href:'http://127.0.0.1:8020/web36/template/chapter01/index.html#page=s00',
+	                status:0
+	            },
+	            {
+	                title:'第二节  幼儿思维能力发展的特点',
+	                href:'http://127.0.0.1:8020/web36/template/chapter01/index.html#page=s01',
+	                status:0
+	            }
+	        ]
+	    },
+	    {
+	        title:'第二章  幼儿创造性思维训练培养内容',
+	        href:'http://127.0.0.1:8020/web36/template/chapter02/index.html#page=home',
+	        chapter:[
+	            {
+	                title:'第一节  创造性思维及其内涵',
+	                href:'http://127.0.0.1:8020/web36/template/chapter02/index.html#page=s00',
+	                status:0
+	            },
+	            {
+	                title:'第二节  幼儿思维能力发展的特点',
+	                href:'http://127.0.0.1:8020/web36/template/chapter02/index.html#page=s01',
+	                status:0
+	            }
+	        ]
+	    }
+	];
+}
+
+//将章节目录结构存入本地存储
+function setChapterLocal(){
+	localStorage.setItem("chapterList",JSON.stringify(chapterList));
+}
+//更新章节目录
+function updateChapterLocal(){
+	chapterList = JSON.parse(localStorage.getItem("chapterList"));
+}
 
 //存储组件
 var domJSON = {
@@ -56,6 +62,17 @@ var domJSON = {
 var chapterArr = {
     c01: [domJSON.ball, domJSON.pop]
 }
+
+$(function () {
+    //加载头部和底部
+    $(".container .main").before(domJSON.header).after(domJSON.footer);
+    // 判断浏览器宽度改变主体样式适应
+    (function () {
+        resizeW();
+        window.onresize = resizeW;
+    })();
+});
+
 // 控制自适应宽度
 function resizeW() {
     var dw = $(window).width();
