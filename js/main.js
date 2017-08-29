@@ -10,13 +10,18 @@ if(localStorage.getItem("chapterList")){
 	        href:'http://127.0.0.1:8020/web36/template/chapter01/index.html#page=home',
 	        chapter:[
 	            {
-	                title:'第一节  创造性思维及其内涵',
+	                title:'第一节 创造性思维及其内涵',
 	                href:'http://127.0.0.1:8020/web36/template/chapter01/index.html#page=s00',
 	                status:0
 	            },
 	            {
-	                title:'第二节  幼儿思维能力发展的特点',
+	                title:'第二节 幼儿思维能力发展的特点',
 	                href:'http://127.0.0.1:8020/web36/template/chapter01/index.html#page=s01',
+	                status:0
+	            },
+	            {
+	                title:'第三章 幼儿创造性思维能力培养与教学活动',
+	                href:'http://127.0.0.1:8020/web36/template/chapter01/index.html#page=s02',
 	                status:0
 	            }
 	        ]
@@ -109,6 +114,16 @@ function load(arr) {
         $(".container .main").after(arr[i]);
     }
 }
+
+//数字补零
+Number.prototype.profixZero = function(n){
+	if(n > this.toString().length){
+		var str = new Array(n).join(0) + this;
+		return str.slice(-n);
+	}
+	return parseInt(this.toString());
+}
+
 
 //获取指定key的hash值
 function getHash(key, url) {
