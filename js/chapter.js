@@ -1,13 +1,11 @@
 $(function () {
-    //加载章节所需要的组件需要放在特定
-    load(chapterArr.c01);
-    
+    //加载章节所需要的组件
+    load(chapterArr.common);
     
     //加载章节目录内容
     $('.action .chapter ul').html(domJSON.chapter);
     //获得当前章节对应章节数据索引
     var chapterIndex = getChapterNow() - 1;
-    
     
     //获取当前章节------------------------------对接平台后需要再做处理
     function getChapterNow(){
@@ -15,19 +13,14 @@ $(function () {
     }
     //得到当前章节一共有多少节
     function getTotalSection(){
-    	//获知当前是第几章
-    	//var cahpterIndex = getChapterNow() - 1;
-    	//返回当前章一共有多少节
     	return chapterList[chapterIndex].chapter.length;
     }
     //得到当前课程一共有多少章
     function getTotalChapter(){
     	return chapterList.length;
     }
-    
     //获知进度函数，在路由控制处调用
     function setChapterStatus(page){
-    	//获知当前是第几节
     	setTimeout(function(){
 			for(var j=0; j<chapterList[chapterIndex].chapter.length; j++){
 				if(chapterList[0].chapter[j].href.indexOf(page) > -1){
@@ -37,11 +30,13 @@ $(function () {
     	},60000);
     }
     
+    var firstLock = true; //设置第一次进入章节状态：true，其后为false
     //处理顶部位置内容
     var oPosChapter_a = $('.container .breadcrumb .pos_chapter a');
     var oPosChapter = $('.container .breadcrumb .pos_chapter');
     var sPosSection = "";
-    oPosChapter_a.text("第"+getChapterNow().toLocaleString("zh-Hans-CN-u-nu-hanidec")+"章");
+    //处理并输出当前章节
+    oPosChapter_a.text("第"+Utils.numberToChinese(getChapterNow())+"章");
     function setPosition(page){
     	if(page == null || page == "home"){
     		sPosSection = "本章导读";
@@ -50,21 +45,20 @@ $(function () {
 		}else if(page == "answer"){
 			sPosSection = "参考答案";
 		}else{
-			sPosSection = "第"+(parseInt(page.slice(1)) + 1).toLocaleString("zh-Hans-CN-u-nu-hanidec")+"节";
+			sPosSection = "第"+Utils.numberToChinese(parseInt(page.slice(1)) + 1)+"节";
 		}
-		if(!firstLock) oPosChapter.next().remove();
+		if(!firstLock) oPosChapter.next().remove();		//如果不是第一次进入该章节
 		oPosChapter.after("<li>&nbsp;>&nbsp;"+sPosSection+"</li>");
     }
     
     //以下为控制action所需变量
-    var firstLock = true; //设置第一次进入章节状态：true，其后为false
     var oLiChapter = $(".container .action .chapter");
     var sAfter = sBefore = "";		//用于存储上一节下一节等li内容
     var beforeIndex = afterIndex = 0;
     function setAction(page){
     	if(!isNaN(parseInt(page.slice(1)))){
     		var nowPage = parseInt(page.slice(1));
-    		beforeIndex= nowPage == 0 ? "home" : (nowPage-1).profixZero(2);
+    		beforeIndex = nowPage == 0 ? "home" : (nowPage-1).profixZero(2);
     		afterIndex = nowPage + 1 == getTotalSection() ? "homework" : (nowPage + 1).profixZero(2);
     	}
     	//处理生成action需要的内容
@@ -104,15 +98,7 @@ $(function () {
     	oLiChapter.before(sBefore);
     	oLiChapter.after(sAfter);
     	firstLock = false;
-        
-        //if(oLiChapter.prev().hasClass("prev")) oLiChapter.prev().remove();
-        //if(oLiChapter.next().hasClass("next")) oLiChapter.next().remove();
-        
-		//oLiChapter.before(sBefore);
-		//oLiChapter.after(sAfter);
     }
-    
-    
     
     //控制路由
     $.history.init(function (hash) {
@@ -125,10 +111,7 @@ $(function () {
             setAction(page);
             setPosition(page)
         });
-        
     });
-    
-    
     
     //控制功能球运动的js
     (function () {
