@@ -51,10 +51,10 @@ var domJSON = {
 			    <ul>\
 				    <li class="active"><a href="#">云翼信息</a></li>\
 				    <li><a href="http://127.0.0.1:8020/web36/index.html">首页</a></li>\
-				    <li><a href="#">课程指南</a></li>\
-				    <li><a href="#">学习内容</a></li>\
-				    <li><a href="#">教师介绍</a></li>\
-				    <li><a href="#">制作团队</a></li>\
+				    <li><a href="http://127.0.0.1:8020/web36/intro.html">课程指南</a></li>\
+				    <li><a href="http://127.0.0.1:8020/web36/course.html">学习内容</a></li>\
+				    <li><a href="http://127.0.0.1:8020/web36/teacher.html">教师介绍</a></li>\
+				    <li><a href="http://127.0.0.1:8020/web36/team.html">制作团队</a></li>\
 			    </ul>\
 		    </div>\
 		    <div class="header"></div>',
