@@ -1,6 +1,6 @@
 $(function () {
     //加载章节所需要的组件需要放在特定
-    load(chapterArr.c01);
+    load(chapterArr.common);
 
 
     //加载章节目录内容
