@@ -60,12 +60,28 @@ var domJSON = {
     footer: '<div class="footer"><div class="den"></div><ul class="action"></ul></div>',
     ball: '<div class="ball"><div class="b1"><img src="../../images/note.png" alt="笔记"><p>笔记</p></div><div class="b2"><img src="../../images/shuqian.png" alt="书签"><p>书签</p></div><div class="b3"><img src="../../images/pregress.png" alt="进度"><p>进度</p></div><div class="b4"><a href="#page=homework"><img src="../../images/work.png" alt="作业"><p>作业</p></a></div><img src="../../images/action.png" alt="action" /></div>',
     pop: '<div class="pop"><div class="pop-header"><h3>笔记</h3><span>x</span></div><div class="pop-main"></div></div>',
-    chapter:localStorage.getItem('chapter')||setChapterList(chapterList)
+    position:'<ul class="breadcrumb">\
+		            <li>您当前的位置：</li>\
+		            <li><a href="javascript:void(0)">首页</a>&nbsp;>&nbsp;</li>\
+		            <li><a href="javascript:void(0)">学习内容</a>&nbsp;>&nbsp;</li>\
+		            <li class="pos_chapter"><a href="#page=home"></a></li>\
+		        </ul>',
+	action:'<ul class="action">\
+				<li class="chapter">\
+					<a href="javascript:void(0)">章节目录</a>\
+					<div class="list">\
+						<img src="../../images/chapter_bg.png" />\
+						<ul></ul>\
+					</div>\
+				</li>\
+				<li><a href="javascript:void(0)" class="setShuqian">加入书签</a></li>\
+			</ul>',
+	chapter:localStorage.getItem('chapter')||setChapterList(chapterList)
 }
 
 //定义章节需要加载的组件
 var chapterArr = {
-    c01: [domJSON.ball, domJSON.pop]
+    c01: [domJSON.ball, domJSON.pop, domJSON.position, domJSON.action]
 }
 
 $(function () {
@@ -77,6 +93,10 @@ $(function () {
         window.onresize = resizeW;
     })();
 });
+
+
+//处理顶部位置
+var oBreadcrumb = $('.container .breadcrumb');
 
 // 控制自适应宽度
 function resizeW() {
@@ -111,7 +131,7 @@ function resizeW() {
 //封装加载组件函数
 function load(arr) {
     for (var i = 0; i < arr.length; i++) {
-        $(".container .main").after(arr[i]);
+        $(".container").append(arr[i]);
     }
 }
 
