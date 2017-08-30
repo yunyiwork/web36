@@ -106,17 +106,6 @@ html {
                     }
                 }
             }
-            // .header {
-            //     width: 695px;
-            //     height: 89px;
-            //     margin: 0 auto;
-            //     margin-top: 70px;
-            //     background-image: url(http://127.0.0.1:8020/web36/images/header_bg.png);
-            //     background-size: cover;
-            //     behavior: url(./style/backgroundsize.min.htc);
-            //     position: relative;
-            //     z-index: 1;
-            // }
             .main {
                 padding: 89px 86px 105px 86px; // width: 75%;
                 width: 695px;
@@ -131,10 +120,6 @@ html {
                 /* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
                 filter: progid:DXImageTransform.Microsoft.Shadow(Strength=8, Direction=81, Color=#557EA9);
                 /*IE 5.5-7*/
-                // background: url(http://127.0.0.1:8020/web36/images/main_bg.png);
-                // background-size: 100% 100%;
-                // behavior: url(./style/backgroundsize.htc);
-                // -ms-behavior: url(./style/backgroundsize.htc);
                 background-color: #FDFDFD;
                 position: relative;
                 
@@ -306,9 +291,7 @@ html {
                 height: 293px;
                 opacity: 0.5;
                 filter: alpha(opacity=50);
-                border-radius: 50%;
                 cursor: pointer;
-                behavior: url(http://127.0.0.1:8020/web36/style/PIE.htc);
                 z-index: 999;
                 >img {
                     position: absolute;
