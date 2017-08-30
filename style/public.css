@@ -208,7 +208,13 @@ html body .container .main .slist li a:hover {
   text-decoration: underline;
 }
 
-html body .container .main .action {
+html body .container .main .movie {
+  width: 505px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+html body .container .action {
   position: fixed;
   bottom: 20px;
   left: 0;
@@ -218,13 +224,13 @@ html body .container .main .action {
   z-index: 9999;
 }
 
-html body .container .main .action > li {
+html body .container .action > li {
   float: left;
   margin: 0 15px;
   background-image: url(../images/ac_list_bg.png);
 }
 
-html body .container .main .action > li a {
+html body .container .action > li a {
   display: block;
   width: 80px;
   font-size: 14px;
@@ -233,20 +239,21 @@ html body .container .main .action > li a {
   text-align: center;
 }
 
-html body .container .main .action li.chapter {
+html body .container .action li.chapter {
   position: relative;
+  z-index: 999;
 }
 
-html body .container .main .action li.chapter .list {
+html body .container .action li.chapter .list {
   position: absolute;
-  z-index: -1;
+  z-index: 999;
   bottom: -468px;
   left: -142px;
   width: 360px;
   height: 422px;
 }
 
-html body .container .main .action li.chapter .list img, html body .container .main .action li.chapter .list ul {
+html body .container .action li.chapter .list img, html body .container .action li.chapter .list ul {
   position: absolute;
   width: 360px;
   height: 422px;
@@ -254,7 +261,7 @@ html body .container .main .action li.chapter .list img, html body .container .m
   left: 0;
 }
 
-html body .container .main .action li.chapter .list ul {
+html body .container .action li.chapter .list ul {
   margin-top: 10px;
   height: 380px;
   width: 346px;
@@ -263,41 +270,35 @@ html body .container .main .action li.chapter .list ul {
   font-size: 14px;
 }
 
-html body .container .main .action li.chapter .list ul li {
+html body .container .action li.chapter .list ul li {
   margin-bottom: 10px;
 }
 
-html body .container .main .action li.chapter .list dt {
+html body .container .action li.chapter .list dt {
   font-size: 15px;
   font-weight: bold;
 }
 
-html body .container .main .action li.chapter .list dd {
+html body .container .action li.chapter .list dd {
   padding-left: 15px;
   margin-top: 5px;
 }
 
-html body .container .main .action li.chapter .list a {
+html body .container .action li.chapter .list a {
   text-align: left;
   width: auto;
 }
 
-html body .container .main .action li.chapter .list a:hover {
+html body .container .action li.chapter .list a:hover {
   color: #226EC1;
 }
 
-html body .container .main .action > li:hover {
+html body .container .action > li:hover {
   background-image: url(../images/ac_list_bga.png);
 }
 
-html body .container .main .action > li:hover > a {
+html body .container .action > li:hover > a {
   color: #f2f2f2;
-}
-
-html body .container .main .movie {
-  width: 505px;
-  margin: 0 auto;
-  padding: 20px 0;
 }
 
 html body .container .footer {
@@ -619,7 +620,7 @@ html .pop .pop-main .pregress .left ol > li span img {
 }
 
 html .pop .pop-main .pregress .left ol > li a:hover {
-  color: #C43636;
+  color: #C66209;
 }
 
 html .pop .pop-main .pregress .left ol > li.readed a {

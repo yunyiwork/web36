@@ -183,83 +183,83 @@ html {
                         }
                     }
                 }
-                .action {
-                    position: fixed;
-                    bottom: 20px;
-                    left: 0;
-                    right: 0;
-                    width: 452px;
-                    margin: auto;
-                    z-index: 9999;
-                    >li {
-                        float: left;
-                        margin: 0 15px;
-                        background-image: url(../images/ac_list_bg.png);
-                        a {
-                            display: block;
-                            width: 80px;
-                            font-size: 14px;
-                            line-height: 26px;
-                            color: #226EC1;
-                            text-align: center;
-                        }
-                    }
-                    li.chapter {
-                        position: relative;
-                        .list {
-                            position: absolute;
-                            z-index: -1;
-                            // bottom: 460px;
-                            bottom: -468px;
-                            left: -142px;
-                            width: 360px;
-                            height: 422px;
-                            img,ul{
-                                position: absolute;
-                                width: 360px;
-                                height: 422px;
-                                top: 0;
-                                left: 0;
-                            }
-                            ul{
-                                margin-top: 10px;
-                                height: 380px;
-                                width: 346px;
-                                overflow-y: scroll;
-                                padding: 10px 15px;
-                                font-size: 14px;
-                                li {
-                                    margin-bottom: 10px;
-                                }
-                            }
-                            dt {
-                                font-size: 15px;
-                                font-weight: bold;
-                            }
-                            dd{
-                                padding-left: 15px;
-                                margin-top: 5px;
-                            }
-                            a {
-                                text-align: left;
-                                width: auto;
-                            }
-                            a:hover {
-                                color: #226EC1;
-                            }
-                        }
-                    }
-                    >li:hover {
-                        background-image: url(../images/ac_list_bga.png);
-                        >a {
-                            color: #f2f2f2;
-                        }
-                    }
-                }
                 .movie {
                     width: 505px;
                     margin: 0 auto;
                     padding: 20px 0;
+                }
+            }
+            .action {
+                position: fixed;
+                bottom: 20px;
+                left: 0;
+                right: 0;
+                width: 452px;
+                margin: auto;
+                z-index: 9999;
+                >li {
+                    float: left;
+                    margin: 0 15px;
+                    background-image: url(../images/ac_list_bg.png);
+                    a {
+                        display: block;
+                        width: 80px;
+                        font-size: 14px;
+                        line-height: 26px;
+                        color: #226EC1;
+                        text-align: center;
+                    }
+                }
+                li.chapter {
+                    position: relative;
+                    z-index: 999;
+                    .list {
+                        position: absolute;
+                        z-index: 999;
+                        bottom: -468px;
+                        left: -142px;
+                        width: 360px;
+                        height: 422px;
+                        img,ul{
+                            position: absolute;
+                            width: 360px;
+                            height: 422px;
+                            top: 0;
+                            left: 0;
+                        }
+                        ul{
+                            margin-top: 10px;
+                            height: 380px;
+                            width: 346px;
+                            overflow-y: scroll;
+                            padding: 10px 15px;
+                            font-size: 14px;
+                            li {
+                                margin-bottom: 10px;
+                            }
+                        }
+                        dt {
+                            font-size: 15px;
+                            font-weight: bold;
+                        }
+                        dd{
+                            padding-left: 15px;
+                            margin-top: 5px;
+                        }
+                        a {
+                            text-align: left;
+                            width: auto;
+                        }
+                        a:hover {
+                            color: #226EC1;
+                        }
+                    }
+                }
+                >li:hover {
+                    background-image: url(../images/ac_list_bga.png);
+                    >a {
+                        color: #f2f2f2;
+                    }
                 }
             }
             .footer {
@@ -530,7 +530,7 @@ html {
                             }
                         }
                         a:hover {
-                            color: #C43636;
+                            color: #C66209;
                         }
                     }
                     ol>li.readed {
