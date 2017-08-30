@@ -1,40 +1,40 @@
 $(function () {
     //加载章节所需要的组件需要放在特定
     load(chapterArr.c01);
-    
-    
+
+
     //加载章节目录内容
     $('.action .chapter ul').html(domJSON.chapter);
     //获得当前章节对应章节数据索引
     var chapterIndex = getChapterNow() - 1;
-    
-    
+
+
     //获取当前章节------------------------------对接平台后需要再做处理
-    function getChapterNow(){
-    	return parseInt(location.href.split("/")[5].slice(7,9));
+    function getChapterNow() {
+        return parseInt(location.href.split("/")[5].slice(7, 9));
     }
     //得到当前章节一共有多少节
-    function getTotalSection(){
-    	//获知当前是第几章
-    	//var cahpterIndex = getChapterNow() - 1;
-    	//返回当前章一共有多少节
-    	return chapterList[chapterIndex].chapter.length;
+    function getTotalSection() {
+        //获知当前是第几章
+        //var cahpterIndex = getChapterNow() - 1;
+        //返回当前章一共有多少节
+        return chapterList[chapterIndex].chapter.length;
     }
     //得到当前课程一共有多少章
-    function getTotalChapter(){
-    	return chapterList.length;
+    function getTotalChapter() {
+        return chapterList.length;
     }
-    
+
     //获知进度函数，在路由控制处调用
-    function setChapterStatus(page){
-    	//获知当前是第几节
-    	setTimeout(function(){
-			for(var j=0; j<chapterList[chapterIndex].chapter.length; j++){
-				if(chapterList[0].chapter[j].href.indexOf(page) > -1){
-					chapterList[0].chapter[j].status = 1;
-				}
-			}
-    	},60000);
+    function setChapterStatus(page) {
+        //获知当前是第几节
+        setTimeout(function () {
+            for (var j = 0; j < chapterList[chapterIndex].chapter.length; j++) {
+                if (chapterList[0].chapter[j].href.indexOf(page) > -1) {
+                    chapterList[0].chapter[j].status = 1;
+                }
+            }
+        }, 60000);
     }
     
     //处理顶部位置内容
@@ -59,7 +59,7 @@ $(function () {
     //以下为控制action所需变量
     var firstLock = true; //设置第一次进入章节状态：true，其后为false
     var oLiChapter = $(".container .action .chapter");
-    var sAfter = sBefore = "";		//用于存储上一节下一节等li内容
+    var sAfter = sBefore = ""; //用于存储上一节下一节等li内容
     var beforeIndex = afterIndex = 0;
     function setAction(page){
     	if(!isNaN(parseInt(page.slice(1)))){
@@ -107,9 +107,9 @@ $(function () {
         
         //if(oLiChapter.prev().hasClass("prev")) oLiChapter.prev().remove();
         //if(oLiChapter.next().hasClass("next")) oLiChapter.next().remove();
-        
-		//oLiChapter.before(sBefore);
-		//oLiChapter.after(sAfter);
+
+        //oLiChapter.before(sBefore);
+        //oLiChapter.after(sAfter);
     }
     
     
@@ -117,15 +117,15 @@ $(function () {
     //控制路由
     $.history.init(function (hash) {
         var page = getHash("page") == null ? "home" : getHash("page");
-        
-        $(".container .main").load("./pages/"+page+".html",function(){
-        	if(page != "home" && page != "homework" && page != "answer"){
-        		setChapterStatus(page);
-        	}
+
+        $(".container .main").load("./pages/" + page + ".html", function () {
+            if (page != "home" && page != "homework" && page != "answer") {
+                setChapterStatus(page);
+            }
             setAction(page);
             setPosition(page)
         });
-        
+
     });
     
     
@@ -253,12 +253,12 @@ $(function () {
                 }
             })
         }, 0);
-        
+
         // 书签
         // 为添加书签按钮绑定事件
         setTimeout(function () {
-        	$('.container .action .setShuqian').on("click",function(){
-        		var href = location.href;
+            $('.container .action .setShuqian').on("click", function () {
+                var href = location.href;
                 var schapter = $('.breadcrumb>li:eq(2)>a').text();
                 var sh2 = $('.main>h2').text().replace(schapter, '');
                 var text = '<li><p><span><a href="' + href + '">' + schapter + ' ' + sh2 + '</a></span><span class="del">删除</span></p></li>';
@@ -270,7 +270,7 @@ $(function () {
                 localStorage.setItem('shuqian', JSON.stringify(shuqian_text));
                 alert('添加书签成功');
                 addShuqian(shuqian_text.join(''));
-        	})
+            })
             //$('.main').on('click', setShuqian);
             if ($('.pop-main').length) {
                 $('.pop-main').on('click', actionShuqian);
@@ -326,58 +326,62 @@ $(function () {
 
         //设置进度内容
         //封装遍历目录内容
-        function setStudyPregress(list){
-        	var  box= '<div class="pregress"><div class="left"><h4>学习进度</h4><ul>';
-        	
-        	for(var i=0; i<list.length; i++){
-        		box += '<li><a href="'+list[i].href+'">'+list[i].title+'</a><ol>';
-        		var item = "";
-        		for(var j=0; j<list[i].chapter.length; j++){
-        			if(list[i].chapter[j].status == 1){
-        				item += '<li class="readed"><a href="'+list[i].chapter[j].href+'">'+list[i].chapter[j].title+'</a><span><img src="../../images/readed.png" /></span></li>';
-        			}else{
-        				item += '<li><a href="'+list[i].chapter[j].href+'">'+list[i].chapter[j].title+'</a><span></span></li>';
-        			}
-        		}
-        		box += item + '</ol></li>';
-        	}
-        	return box + '</div><div class="right"><div class="schedule"><h4>学习完成度</h4><p>'+studyPregress()+'%</p></div><div class="time"><h4>学习时长</h4><p>'+formatTime(studyTime)+'</p></div></div></div>';
+        function setStudyPregress(list) {
+            var box = '<div class="pregress"><div class="left"><h4>学习进度</h4><ul>';
+
+            for (var i = 0; i < list.length; i++) {
+                box += '<li><a href="' + list[i].href + '">' + list[i].title + '</a><ol>';
+                var item = "";
+                for (var j = 0; j < list[i].chapter.length; j++) {
+                    if (list[i].chapter[j].status == 1) {
+                        item += '<li class="readed"><a href="' + list[i].chapter[j].href + '">' + list[i].chapter[j].title + '</a><span><img src="../../images/readed.png" /></span></li>';
+                    } else {
+                        item += '<li><a href="' + list[i].chapter[j].href + '">' + list[i].chapter[j].title + '</a><span></span></li>';
+                    }
+                }
+                box += item + '</ol></li>';
+            }
+            return box + '</div><div class="right"><div class="schedule"><h4>学习完成度</h4><p>' + studyPregress() + '%</p></div><div class="time"><h4>学习时长</h4><p>' + formatTime(studyTime) + '</p></div></div></div>';
         }
         //计算课程总章节
-        function studyPregress(){
-        	var chapterTotal = studyTotal = tmp = 0;	//初始化课程章节总数:chapterTotal, 学习过的章节总数：studyTotal
-        	for(var i = 0; i<chapterList.length; i++){
-        		tmp = chapterList[i].chapter.length;
-        		chapterTotal += tmp;
-        		for(var j=0; j<tmp; j++){
-        			if(chapterList[i].chapter[j].status == 1){
-        				 studyTotal++;
-        			};
-        		}
-        	}
-        	return studyTotal / chapterTotal * 100
+        function studyPregress() {
+            var chapterTotal = studyTotal = tmp = 0; //初始化课程章节总数:chapterTotal, 学习过的章节总数：studyTotal
+            for (var i = 0; i < chapterList.length; i++) {
+                tmp = chapterList[i].chapter.length;
+                chapterTotal += tmp;
+                for (var j = 0; j < tmp; j++) {
+                    if (chapterList[i].chapter[j].status == 1) {
+                        studyTotal++;
+                    };
+                }
+            }
+            return studyTotal / chapterTotal * 100
         }
         //计算学习时长
         var studyTime = localStorage.getItem('studyTime') || 0;
-        var studyTimer = setInterval(function(){studyTime++},1000);
+        var studyTimer = setInterval(function () {
+            studyTime++
+        }, 1000);
         //转化成xx小时xx分钟
         function formatTime(second) {
-		    //return parseInt(second / 60 / 60)+"小时<br />"+parseInt(second / 60 % 60)+"分钟<br />"+second % 60+"秒";
-		    return parseInt(second / 60 / 60)+"小时<br />"+parseInt(second / 60 % 60)+"分钟";
-		}
-        window.onblur = function(){		//窗体失去焦点时关闭计时
-        	clearInterval(studyTimer);
+            //return parseInt(second / 60 / 60)+"小时<br />"+parseInt(second / 60 % 60)+"分钟<br />"+second % 60+"秒";
+            return parseInt(second / 60 / 60) + "小时<br />" + parseInt(second / 60 % 60) + "分钟";
         }
-        window.onfocus = function(){	//窗体获得焦点时开启计时
-        	studyTimer = setInterval(function(){studyTime++},1000);
+        window.onblur = function () { //窗体失去焦点时关闭计时
+            clearInterval(studyTimer);
         }
-        window.onunload = function(){
-        	//当页面关闭将学习时间存入本地存储
-        	localStorage.setItem("studyTime",studyTime);
-        	//当页面关闭将课程学习进度存入本地存储
-        	setChapterLocal();
+        window.onfocus = function () { //窗体获得焦点时开启计时
+            studyTimer = setInterval(function () {
+                studyTime++
+            }, 1000);
         }
-        
+        window.onunload = function () {
+            //当页面关闭将学习时间存入本地存储
+            localStorage.setItem("studyTime", studyTime);
+            //当页面关闭将课程学习进度存入本地存储
+            setChapterLocal();
+        }
+
 
 
         //弹窗动画
@@ -411,11 +415,11 @@ $(function () {
     })(); //弹窗结束
 
     //action控制底部操作
-	(function(){
-        var lock = true;	//设置章节目录显示了还是隐藏了
-        
-        oLiChapter.on("click",function(){	//控制章节显示隐藏
-        	if (lock) {
+    (function () {
+        var lock = true; //设置章节目录显示了还是隐藏了
+
+        oLiChapter.on("click", function () { //控制章节显示隐藏
+            if (lock) {
                 $(this).find(".list").stop().animate({
                     "bottom": "26px"
                 })
@@ -427,5 +431,5 @@ $(function () {
                 lock = !lock;
             }
         })
-	})();
+    })();
 });

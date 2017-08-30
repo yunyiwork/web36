@@ -127,22 +127,10 @@ html body .container .nav ul .active > a {
   color: #5a93cf;
 }
 
-html body .container .header {
-  width: 695px;
-  height: 89px;
-  margin: 0 auto;
-  margin-top: 70px;
-  background-image: url(http://127.0.0.1:8020/web36/images/header_bg.png);
-  background-size: cover;
-  behavior: url(./style/backgroundsize.min.htc);
-  position: relative;
-  z-index: 1;
-}
-
 html body .container .main {
-  padding: 0 86px;
+  padding: 89px 86px 105px 86px;
   width: 695px;
-  margin: 0 auto;
+  margin: 70px auto 85px auto;
   -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=8, Direction=81, Color=#557EA9)";
   /*IE 8*/
   -moz-box-shadow: 1px 5px 5px 5px rgba(51, 48, 48, 0.3);
@@ -181,6 +169,12 @@ html body .container .main .dail {
   padding-bottom: 13px;
 }
 
+html body .container .main .dail > em {
+  font-size: 16px;
+  font-weight: bolder;
+  font-style: normal;
+}
+
 html body .container .main .img_box,
 html body .container .main .video_box {
   text-align: center;
@@ -214,6 +208,15 @@ html body .container .main .movie {
   width: 505px;
   margin: 0 auto;
   padding: 20px 0;
+}
+
+html body .container .main .den {
+  width: 291px;
+  height: 243px;
+  background: url(../images/den.png);
+  position: absolute;
+  right: -185px;
+  bottom: -73px;
 }
 
 html body .container .action {
