@@ -37,13 +37,30 @@ $(function () {
     	},60000);
     }
     
+    //处理顶部位置内容
+    var oPosChapter_a = $('.container .breadcrumb .pos_chapter a');
+    var oPosChapter = $('.container .breadcrumb .pos_chapter');
+    var sPosSection = "";
+    oPosChapter_a.text("第"+getChapterNow().toLocaleString("zh-Hans-CN-u-nu-hanidec")+"章");
+    function setPosition(page){
+    	if(page == null || page == "home"){
+    		sPosSection = "本章导读";
+    	}else if(page == "homework"){
+			sPosSection = "章节练习";
+		}else if(page == "answer"){
+			sPosSection = "参考答案";
+		}else{
+			sPosSection = "第"+(parseInt(page.slice(1)) + 1).toLocaleString("zh-Hans-CN-u-nu-hanidec")+"节";
+		}
+		if(!firstLock) oPosChapter.next().remove();
+		oPosChapter.after("<li>&nbsp;>&nbsp;"+sPosSection+"</li>");
+    }
     
     //以下为控制action所需变量
     var firstLock = true; //设置第一次进入章节状态：true，其后为false
     var oLiChapter = $(".container .action .chapter");
     var sAfter = sBefore = "";		//用于存储上一节下一节等li内容
     var beforeIndex = afterIndex = 0;
-    
     function setAction(page){
     	if(!isNaN(parseInt(page.slice(1)))){
     		var nowPage = parseInt(page.slice(1));
@@ -79,17 +96,14 @@ $(function () {
         	sAfter = '<li class="next"><a href="#page=s'+afterIndex+'">下一节</a></li>';
         }
         
-        if(firstLock){	//如果是第一次进入该章节
-			oLiChapter.before(sBefore);
-			oLiChapter.after(sAfter);
-			firstLock = false;
-        }else{
+        if(!firstLock){	//如果不是第一次进入该章节
         	oLiChapter.prev().remove();
         	oLiChapter.next().remove();
-        	oLiChapter.before(sBefore);
-        	oLiChapter.after(sAfter);
         }
         
+    	oLiChapter.before(sBefore);
+    	oLiChapter.after(sAfter);
+    	firstLock = false;
         
         //if(oLiChapter.prev().hasClass("prev")) oLiChapter.prev().remove();
         //if(oLiChapter.next().hasClass("next")) oLiChapter.next().remove();
@@ -97,6 +111,7 @@ $(function () {
 		//oLiChapter.before(sBefore);
 		//oLiChapter.after(sAfter);
     }
+    
     
     
     //控制路由
@@ -108,9 +123,12 @@ $(function () {
         		setChapterStatus(page);
         	}
             setAction(page);
+            setPosition(page)
         });
         
     });
+    
+    
     
     //控制功能球运动的js
     (function () {
