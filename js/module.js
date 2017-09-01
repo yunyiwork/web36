@@ -89,7 +89,6 @@ var domJSON = {
     	</div>',
     position:'<ul class="breadcrumb">\
 		            <li>您当前的位置：</li>\
-		            <li><a href="javascript:void(0)">首页</a>&nbsp;>&nbsp;</li>\
 		            <li><a href="javascript:void(0)">学习内容</a>&nbsp;>&nbsp;</li>\
 		            <li class="pos_chapter"><a href="#page=home"></a></li>\
 		        </ul>',
