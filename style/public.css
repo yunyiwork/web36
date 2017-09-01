@@ -337,9 +337,7 @@ html body .container .ball {
   height: 293px;
   opacity: 0.5;
   filter: alpha(opacity=50);
-  border-radius: 50%;
   cursor: pointer;
-  behavior: url(http://127.0.0.1:8020/web36/style/PIE.htc);
   z-index: 999;
 }
 
