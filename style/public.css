@@ -396,6 +396,11 @@ html body .container .ball .b4 {
   bottom: 121px;
 }
 
+html body .container .ball .b3 img,
+html body .container .ball .b4 img {
+  border: 0px\0;
+}
+
 html .pop {
   position: fixed;
   top: -1500px;

@@ -11,7 +11,8 @@ $(function () {
 
     //获取当前章节------------------------------对接平台后需要再做处理
     function getChapterNow() {
-        return parseInt(location.href.split("/")[5].slice(7, 9));
+    	var index = location.href.indexOf("chapter")+7;
+        return parseInt(location.href.slice(index, index + 3));
     }
     //得到当前章节一共有多少节
     function getTotalSection(){
@@ -24,11 +25,7 @@ $(function () {
     //获知进度函数，在路由控制处调用
     function setChapterStatus(page){
     	setTimeout(function(){
-			for(var j=0; j<chapterList[chapterIndex].chapter.length; j++){
-				if(chapterList[0].chapter[j].href.indexOf(page) > -1){
-					chapterList[0].chapter[j].status = 1;
-				}
-			}
+    		chapterList[chapterIndex].chapter[parseInt(page.slice(1))].status = 1;
     	},60000);
     }
     
@@ -313,15 +310,16 @@ $(function () {
         //封装遍历目录内容
         function setStudyPregress(list) {
             var box = '<div class="pregress"><div class="left"><h4>学习进度</h4><ul>';
-
+			var tmp = 0;
             for (var i = 0; i < list.length; i++) {
-                box += '<li><a href="' + list[i].href + '">' + list[i].title + '</a><ol>';
+            	tmp = (i+1).profixZero(2);
+                box += '<li><a href="'+config.path+'/template/chapter'+tmp+'/index.html">'+list[i].title+'</a><ol>';
                 var item = "";
                 for (var j = 0; j < list[i].chapter.length; j++) {
                     if (list[i].chapter[j].status == 1) {
-                        item += '<li class="readed"><a href="' + list[i].chapter[j].href + '">' + list[i].chapter[j].title + '</a><span><img src="../../images/readed.png" /></span></li>';
+                        item += '<li class="readed"><a href="'+config.path+'template/chapter'+tmp+'/index.html#page=s'+j.profixZero(2)+'">'+list[i].chapter[j].title+'</a><span><img src="../../images/readed.png" /></span></li>';
                     } else {
-                        item += '<li><a href="' + list[i].chapter[j].href + '">' + list[i].chapter[j].title + '</a><span></span></li>';
+                        item += '<li><a href="'+config.path+'template/chapter'+tmp+'/index.html#page=s'+j.profixZero(2)+'">'+list[i].chapter[j].title+'</a><span></span></li>';
                     }
                 }
                 box += item + '</ol></li>';
@@ -340,7 +338,7 @@ $(function () {
                     };
                 }
             }
-            return studyTotal / chapterTotal * 100
+            return (studyTotal / chapterTotal).toFixed(2) * 100
         }
         //计算学习时长
         var studyTime = localStorage.getItem('studyTime') || 0;

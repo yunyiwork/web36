@@ -1,3 +1,9 @@
+//配置信息
+var config = {
+	path:"http://127.0.0.1:8020/HubildWorkPlace/web36/"		//课程网站所在域名
+}
+
+
 
 // 章节目录结构
 var chapterList = [];
@@ -6,38 +12,68 @@ if(localStorage.getItem("chapterList")){
 }else{
 	chapterList = [
 	    {
-	        title:'第一章 幼儿创造性思维概述',
-	        href:'http://127.0.0.1:8020/web36/template/chapter01/index.html#page=home',
+	        title:'第一章 数学的对象、方法与价值',
 	        chapter:[
 	            {
-	                title:'第一节 创造性思维及其内涵',
-	                href:'http://127.0.0.1:8020/web36/template/chapter01/index.html#page=s00',
+	                title:'第一节 数学的对象',
 	                status:0
 	            },
 	            {
-	                title:'第二节 幼儿思维能力发展的特点',
-	                href:'http://127.0.0.1:8020/web36/template/chapter01/index.html#page=s01',
+	                title:'第二节 数学的方法',
 	                status:0
 	            },
 	            {
-	                title:'第三章 幼儿创造性思维能力培养与教学活动',
-	                href:'http://127.0.0.1:8020/web36/template/chapter01/index.html#page=s02',
+	                title:'第三节 数学的价值',
 	                status:0
 	            }
 	        ]
 	    },
 	    {
-	        title:'第二章  幼儿创造性思维训练培养内容',
-	        href:'http://127.0.0.1:8020/web36/template/chapter02/index.html#page=home',
+	        title:'第二章 数学中的辩证性',
 	        chapter:[
 	            {
-	                title:'第一节  创造性思维及其内涵',
-	                href:'http://127.0.0.1:8020/web36/template/chapter02/index.html#page=s00',
+	                title:'第一节 动中有静',
 	                status:0
 	            },
 	            {
-	                title:'第二节  幼儿思维能力发展的特点',
-	                href:'http://127.0.0.1:8020/web36/template/chapter02/index.html#page=s01',
+	                title:'第二节 变中有恒',
+	                status:0
+	            },
+	            {
+	                title:'第三节 乱中有序',
+	                status:0
+	            },
+	            {
+	                title:'第四节 异中有同',
+	                status:0
+	            },
+	            {
+	                title:'第五节 情中有理',
+	                status:0
+	            },
+	            {
+	                title:'第六节 理中有用',
+	                status:0
+	            }
+	        ]
+	    },
+	    {
+	        title:'第三章 数学美学赏析',
+	        chapter:[
+	            {
+	                title:'第一节 数学美的根源特征',
+	                status:0
+	            },
+	            {
+	                title:'第二节 数学美的特征解析',
+	                status:0
+	            },
+	            {
+	                title:'第三节 数学方法之美',
+	                status:0
+	            },
+	            {
+	                title:'第四节 数学结论之美',
 	                status:0
 	            }
 	        ]
@@ -50,11 +86,11 @@ var domJSON = {
     header: '<div class="nav">\
 			    <ul>\
 				    <li class="active"><a href="#">云翼信息</a></li>\
-				    <li><a href="http://127.0.0.1:8020/web36/index.html">首页</a></li>\
-				    <li><a href="http://127.0.0.1:8020/web36/intro.html">课程指南</a></li>\
-				    <li><a href="http://127.0.0.1:8020/web36/course.html">学习内容</a></li>\
-				    <li><a href="http://127.0.0.1:8020/web36/teacher.html">教师介绍</a></li>\
-				    <li><a href="http://127.0.0.1:8020/web36/team.html">制作团队</a></li>\
+				    <li><a href="'+config.path+'index.html">首页</a></li>\
+				    <li><a href="'+config.path+'intro.html">课程指南</a></li>\
+				    <li><a href="'+config.path+'course.html">学习内容</a></li>\
+				    <li><a href="'+config.path+'teacher.html">教师介绍</a></li>\
+				    <li><a href="'+config.path+'team.html">制作团队</a></li>\
 			    </ul>\
 		    </div>\
 		    <div class="header"></div>',
@@ -113,11 +149,13 @@ var chapterArr = {
 //处理并生成章节内容
 function setChapterList(arr){
     var li = '';
+    var tmp = 0;
     for(var i=0;i<arr.length;i++){
-        li += '<li><dl><dt><a href="'+arr[i].href+'">'+arr[i].title+'</a></dt>';
+    	tmp = (i+1).profixZero(2);
+        li += '<li><dl><dt><a href="'+config.path+'template/chapter'+tmp+'/index.html">'+arr[i].title+'</a></dt>';
         var dd = '';
         for(var j=0;j<arr[i].chapter.length;j++){
-            dd += '<dd><a href="'+arr[i].chapter[j].href+'">'+arr[i].chapter[j].title+'</a></dd>';
+            dd += '<dd><a href="'+config.path+'template/chapter'+tmp+'/index.html#page=s'+j.profixZero(2)+'">'+arr[i].chapter[j].title+'</a></dd>';
         }
         li += dd+'</dl></li>'
     }

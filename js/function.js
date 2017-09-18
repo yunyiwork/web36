@@ -89,8 +89,31 @@ function getHash(key, url) {
     }
 }
 
-/*start 章节目录*/
+/*START 懒加载*/
+var lazyLoad = function(o){
+	this.aImg = document.querySelector(o.el).getElementsByTagName('img');
+	var that = this;
+	window.onload = function(){that.loadImg()}
+	window.onscroll = function(){that.loadImg()}
+}
+lazyLoad.prototype.loadImg = function(){
+	for(var i = 0; i < this.aImg.length; i++){
+		if(this.aImg[i].offsetTop <= this.getScroTop() + this.getViewHeight()){
+			this.aImg[i].src = this.aImg[i].getAttribute('data-src');
+		}
+	}
+}
+lazyLoad.prototype.getScroTop = function(){
+	return document.documentElement.scrollTop || document.body.scrollTop;
+}
+lazyLoad.prototype.getViewHeight = function(){
+	return document.documentElement.clientHeight || document.body.clientHeight;
+}
+window.lazyLoad = lazyLoad;
+/*END 懒加载*/
 
+
+/*start 章节目录*/
 //将章节目录结构存入本地存储
 function setChapterLocal(){
 	localStorage.setItem("chapterList",JSON.stringify(chapterList));
